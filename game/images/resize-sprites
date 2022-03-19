@@ -1,0 +1,16 @@
+#!/bin/bash
+# Find all sprites, resize them appropriately, and put the modified sprites in the new directory, leaving the original sprites as-is
+
+mkdir -p new
+# Really tall people
+find . -maxdepth 1 -iname "factor*.png" -exec convert -trim +repage -gravity South -chop 0x70 -resize  x1020 -quality 95 '{}' new/'{}' \;
+
+# Tall people
+find . -maxdepth 1 -iname "calvin*.png" -exec convert -trim +repage -gravity South -chop 0x70 -resize  x1000 -quality 95 '{}' new/'{}' \;
+
+# Medium sized people
+find . -maxdepth 1 -iname "tabitha*.png" -exec convert -trim +repage -gravity South -chop 0x70 -resize  x900 -quality 95 '{}' new/'{}' \;
+find . -maxdepth 1 -iname "emir*.png" -exec convert -trim +repage -gravity South -chop 0x70 -resize  x870 -quality 95 '{}' new/'{}' \;
+
+# Short people
+find . -maxdepth 1 -iname "nina*.png" -exec convert -trim +repage -gravity South -chop 0x70 -resize  x830 -quality 95 '{}' new/'{}' \;
