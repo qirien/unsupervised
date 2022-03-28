@@ -111,6 +111,7 @@ label act1:
 
     "Soon it was my turn to read."
     you "This paper is by Emir...?"
+    show emir happy at quarterright
     emir sad "That's me! Don't make me sound stupid, ok?"
     ryan "You already sound stupid."
     math_teacher "Hey, in this class, I expect everyone to talk respectfully to and about each other."
@@ -121,18 +122,21 @@ label act1:
         "What should I say?"
         "Fartball":
             you "...fartball."
+            show emir happy with dissolve
             "The class exploded with laughter. Emir just looked at me for a second, and I grinned at him. Finally, he laughed and shook his head."
             emir "Yeah, I'm pretty good at fartball, but not as good as you, I bet!"
             $ emir_pts += 2
         "Football":
             you "...football."
+            show emir happy with dissolve
             "Emir looked at me and nodded."
             $ emir_pts += 1
         "I'm sorry, I can't read this.":
             you "Sorry, his handwriting's too messy, I can't read this."
             $ emir_pts -= 1
-            emir "It says football! Obviously! What else comes after 'flag'?!"
+            emir angry "It says football! Obviously! What else comes after 'flag'?!"
             you "Oh, okay, flag football."
+    hide emir with dissolve
     "By the time the rest of the class introduced themselves, advisory was over."
     math_teacher "One more thing -- tomorrow at lunch all the clubs and sports will have booths. Go check them out! It's a great way to make new friends and do cool stuff!"
     "Clubs? Sports? In elementary school we had after school clubs, but sometimes they felt more like babysitting. Maybe middle school would be different."
@@ -153,40 +157,92 @@ label act1:
                 "Wow. Middle school kids were..."
                 "Weird.":
                     $ independent += 1
+                    "That was really weird. I couldn't really understand why someone would make a big mess like that."
                 "Scary.":
                     $ anxious += 1
+                    "If they would do that to a milk carton, what would they do to someone that annoyed them? I stayed far away from them."
                 "Cool.":
-                    $ rebellious += 1
+                    $ rebellious += 1                    
+                    "Cool. It was like a homemade water gun."
         "Sit by someone who's sitting alone.":
-            "I sat by a girl wearing baggy pants and a t-shirt from a hiking area I'd been to."
+            show tabitha angry at center with dissolve
+            "I sat by a girl wearing baggy pants and a sticker on her water bottle from a hiking area I'd been to."
             you "You like to go hiking?"
-            tabitha "What?"
-            you "Your shirt. I went hiking there once."
-            tabitha "It's okay. We go a lot."
-            you "You and your family?"
-            tabitha "Me and my dad, yes."
+            "She glared at me, like I'd interrupted something important."
+            you "Uh, your sticker. I went hiking there once."
+            tabitha sad "...It's okay."
             "We ate quietly for a few minutes."
             menu:
                 "What should I say?"
                 "Talk about the food":
                     you "This chicken sandwich isn't too bad."
+                    "She shrugged."
                 "Talk about school":
                     you "What did you guys do in advisory this morning?"
+                    tabitha "Just talked."
                 "Don't talk about anything":
                     "I continued to eat quietly, and so did she."
+            "She finished eating and pulled out a book. It looked like an old book from the cover, though I couldn't see the name."
             
+            "Seems like she wants to be left alone."
     
+    scene school
+    "After lunch and a few more classes, I rode my bike home."
+    scene house evening
+    "Even though the house was empty, it still felt cozy, like a warm hoodie."
+    scene bedroom
+    "I had some time to do a few things before dinner..."
+    call freetime_menu(2)
     
+    "...Mom still wasn't home. Guess I was making my own dinner."
+    "We had some basic ingredients in the fridge, and I'd cooked for the two of us plenty of times before."
+    call meal_menu
+
+    "Wow, my mom was really working late. That's not too unusual, but I was all by myself in our quiet house."
+    menu:
+        "I felt..."
+        "empowered":
+            "Nothing against my mom, but I liked being in charge of my own time and meals and stuff."
+            $ independent += 1
+        "worried":
+            "I started to worry about her. What if she'd been a car accident on the way home from work? Or what if she had a heart attack or something? Sometimes those things happened!"
+            $ anxious += 1
+            "I needed to calm down. Maybe I could distract myself by doing something else."
+        "devious":
+            "If my mom wasn't here, I could do anything I wanted."
+            scene master bedroom evening            
+            "I went up to her room and looked through her stuff. I found some jewelry and tried it on. Not bad, not bad."
+            "I put everything away afterwards. She'd never know."
+            $ rebellious += 1
+        
+    scene kitchen
+    "I still had some time before bed..."
+    call freetime_menu(1)
     
-    
-    
-    
-    
-    
+    scene bedroom night
+    "Mom had never worked this late before... but I couldn't stay up forever. I went to bed when I got tired."    
+
     # DAY 2
     
-    
-    
+    scene bedroom
+    "I woke up the next day to the feeling that something was wrong."
+    "Everything looked the same as last night..."
+    "...including the lack of my mom."
+    scene master bedroom day
+    "Her bed hadn't been slept in."
+    scene kitchen 
+    "No food was missing from the fridge."
+    scene kitchen
+    "There was no new note on the table."    
+    scene house hallway
+    "I searched the house, calling for her and checking every room."
+    you "Mom??"
+    "What if something had happened to my mom? They would have no way to contact me." #unrealistic that she doesn't have a phone yet if her mom works late? Maybe she has a limited phone.
+    "I have a phone, but only my parents have the number and it can only call and text."
+    "Then I noticed her purse in the hallway. That's weird... why would she have left without her purse?"
+    "A song started playing, and my heartbeat raced like a startled deer."
+    "It was her phone."
+
     # scene cafeteria
     "As I waited in line for my lunch, I noticed that all the clubs and teams had setup booths around the cafeteria to try to get people to join."
     "Emir got in line next to me."

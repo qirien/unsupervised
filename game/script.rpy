@@ -3,7 +3,7 @@
 # CHARACTERS
 define you = Character("your_name", dynamic=True)
 define ryan = Character("Ryan")
-define emir = Character("Emir")
+define emir = Character("Emir", image="emir", who_color="#dac96c")
 define tabitha = Character("Tabitha")
 define nina = Character("Nina")
 define math_teacher = Character("Mr. Factor")
@@ -41,17 +41,23 @@ default magicghoulbus_pts = 0
 default day = 1
 default clubs = []
 
+# VARIABLES FOR DISPLAY
+transform midleft:
+    xpos 0.35 xanchor 0.5 ypos 1.0 yanchor 1.0
+transform midright:
+    xpos 0.65 xanchor 0.5 ypos 1.0 yanchor 1.0
+transform quarterleft:
+    xpos 0.22 xanchor 0.5 ypos 1.0 yanchor 1.0
+transform quarterright:
+    xpos 0.78 xanchor 0.5 ypos 1.0 yanchor 1.0
+
 # The game starts here.
 
 label start:
-
-
     scene bg room
 
-    call act1
-    call act2
-    call act3
-    call act4
-    call act5
+    $ act = 1
+    while (act <= 5):
+        call expression "act" + str(act)
 
     return
