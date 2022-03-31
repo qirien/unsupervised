@@ -203,48 +203,76 @@ label act1:
         "I felt..."
         "empowered":
             "Nothing against my mom, but I liked being in charge of my own time and meals and stuff."
+            "I texted her and told her that I was home from school and doing fine."
             $ independent += 1
         "worried":
             "I started to worry about her. What if she'd been a car accident on the way home from work? Or what if she had a heart attack or something? Sometimes those things happened!"
             $ anxious += 1
-            "I needed to calm down. Maybe I could distract myself by doing something else."
+            "I texted her and asked where she was, but she didn't respond right away. Sometimes she couldn't check her phone at work."
         "devious":
             "If my mom wasn't here, I could do anything I wanted."
             scene master bedroom evening            
             "I went up to her room and looked through her stuff. I found some jewelry and tried it on. Not bad, not bad."
             "I put everything away afterwards. She'd never know."
             $ rebellious += 1
+            "I texted her a photo of me making a funny face."
         
+    # TODO: show phone interface here?
+    "My phone couldn't do much, so I mostly used it to take pictures and talk to my mom."
+    "My dad texted me once in a while; random stuff like a photo of his lunch or from some trip he was on."
     scene kitchen
     "I still had some time before bed..."
     call freetime_menu(1)
     
     scene bedroom night
-    "Mom had never worked this late before... but I couldn't stay up forever. I went to bed when I got tired."    
+    "Mom had never worked this late before... but I couldn't stay up forever. I sent her a good night text and went to bed."
 
     # DAY 2
     
     scene bedroom
-    "I woke up the next day to the feeling that something was wrong."
+    "I woke up the next day to my alarm and the feeling that something was wrong."
     "Everything looked the same as last night..."
-    "...including the lack of my mom."
+    "...Where was Mom?"
     scene master bedroom day
     "Her bed hadn't been slept in."
     scene kitchen 
     "No food was missing from the fridge."
     scene kitchen
-    "There was no new note on the table."    
+    "There was no new note on the table; no new texts on my phone."    
     scene house hallway
     "I searched the house, calling for her and checking every room."
     you "Mom??"
-    "What if something had happened to my mom? They would have no way to contact me." #unrealistic that she doesn't have a phone yet if her mom works late? Maybe she has a limited phone.
-    "I have a phone, but only my parents have the number and it can only call and text."
-    "Then I noticed her purse in the hallway. That's weird... why would she have left without her purse?"
-    "A song started playing, and my heartbeat raced like a startled deer."
-    "It was her phone."
+    "What if something had happened to my mom at work? They would have no way to contact me - only my parents had my number."
 
-    # scene cafeteria
+    # TODO: sfx
+    "A song suddenly started playing, and my heartbeat raced like a startled deer."
+    "It was her phone."
+    "I searched around and found it on the floor but still plugged in."
+    "She must have plugged it in to charge and it fell down and she forgot it."
+    "She was supposed to be a brilliant scientist, but she was always forgetting things like that."
+
+    "Her phone was locked..."
+    "...but we look similar enough that it unlocked when I looked at it."
+    "There was my text, and also some texts from people I didn't recognize."
+    "The calendar from yesterday had an event on it called 'Field Test'."
+    "Maybe she was still at the field test? And she couldn't call me because she left her phone here?"
+    "But wouldn't she have borrowed someone else's?"
+    "Should I call the police? Or my dad? Or one of her coworkers?"
+    # TODO: phone interface, allow to read texts such as
+    coworker_text "Where did you go?! You weren't at the drop site. I'm guessing you have no reception since we haven't heard from you. Anyway, we found the bug; it was a bit shift error in the interface between the input hardware and the main system. I told Clara we needed tests for everything, but she thought the deadline was more important. Anyway, call us when you can!"
+    "Drop site? Bit shift error? This looked like work stuff."
+    you "I guess something went wrong and my mom wasn't where they thought she would be. He didn't sound too worried, though..."
+    menu:
+        "What should I do?"
+        "Text the coworker"
+        "Call the police"
+        "Call dad"
+
+    
+
+    scene cafeteria
     "As I waited in line for my lunch, I noticed that all the clubs and teams had setup booths around the cafeteria to try to get people to join."
+    show emir happy at center
     "Emir got in line next to me."
     if (emir_pts >= 2):
         emir "Too bad there's no fartball club! You could be the president."
