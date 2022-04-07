@@ -228,6 +228,7 @@ label act1:
     "Mom had never worked this late before... but I couldn't stay up forever. I sent her a good night text and went to bed."
 
     # DAY 2
+label day2:
     
     scene bedroom
     "I woke up the next day to my alarm and the feeling that something was wrong."
@@ -246,29 +247,63 @@ label act1:
 
     # TODO: sfx
     "A song suddenly started playing, and my heartbeat raced like a startled deer."
-    "It was her phone."
+    "It was my mom's phone."
     "I searched around and found it on the floor but still plugged in."
     "She must have plugged it in to charge and it fell down and she forgot it."
     "She was supposed to be a brilliant scientist, but she was always forgetting things like that."
 
-    "Her phone was locked..."
-    "...but we look similar enough that it unlocked when I looked at it."
-    "There was my text, and also some texts from people I didn't recognize."
+    "I picked it up and it unlocked. People were always telling us we looked alike."
+    # TODO: have a phone interface where you can choose order to check Calendar, Messages, and ...?
+    "There was my text from last night, and also some texts from people I didn't recognize."
     "The calendar from yesterday had an event on it called 'Field Test'."
     "Maybe she was still at the field test? And she couldn't call me because she left her phone here?"
     "But wouldn't she have borrowed someone else's?"
     "Should I call the police? Or my dad? Or one of her coworkers?"
+    "I needed to know more first. I started to read her messages."
     # TODO: phone interface, allow to read texts such as
-    coworker_text "Where did you go?! You weren't at the drop site. I'm guessing you have no reception since we haven't heard from you. Anyway, we found the bug; it was a bit shift error in the interface between the input hardware and the main system. I told Clara we needed tests for everything, but she thought the deadline was more important. Anyway, call us when you can!"
+    coworker_text "Where did you go?! You weren't at the drop site. I'm guessing you have no reception since we haven't heard from you."
+    coworker_text "Anyway, we found the bug; it was a bit shift error in the interface between the input hardware and the main system."
+    coworker_text "I told Mark we needed tests for everything, but he thought the deadline was more important. Anyway, call us when you can!"
     "Drop site? Bit shift error? This looked like work stuff."
     you "I guess something went wrong and my mom wasn't where they thought she would be. He didn't sound too worried, though..."
-    menu:
+    default act1_contact_set = set()
+    menu act1_contact:
+        set act1_contact_set
         "What should I do?"
-        "Text the coworker"
-        "Call the police"
-        "Call dad"
+        "Text the coworker":
+            you_text "This is her kid... Where is my mom? Why didn't she come home?"
+            coworker_text "Oh, [your_name], right? I'm really sorry... I, uh, I'm not really supposed to talk about the project..."
+            coworker_text "But I'm reasonably sure that your mom is safe! We just don't really know where she is..."
+            coworker_text "Are you okay? Do you have someone taking care of you? Do you need me to, I don't know, call someone or something?"
+            you_text "I'm taken care of. I'm kinda worried though..."
+            "I mean, it wasn't technically lying. I did have someone taking care of me -- myself."
+            coworker_text "Don't worry! We'll figure this out. And I'll let you know if I talk to your mom, okay?"
+            you_text "Okay."
+            jump act1_contact
+        "Call the police":
+            "I started to dial the emergency number... but then stopped. What would happen if I did? Would they take me away to live with some strangers? Would they think my mom wasn't doing a good job and send me to live with my dad?"
+            "I didn't want either of those things to happen."            
+            jump act1_contact
+        "Call dad":
+            "Dad wasn't around much, but parents are supposed to be there for their kids, right?"
+            "I called his number from my mom's phone, but no one answered. I called it four more times, and he never picked up."
+            "No, he wasn't going to be any help. And even if he did answer and invited me to stay with him, would I want to do that?"
+            "I remembered the last time I was there...We did go to the amusement park together... but then he wandered off. I spent the day going on rides all by myself."
+            "He spent the rest of my visit doing stuff on his computer. Whenever I'd ask him about it, he'd tell me to go away because I was making him lose his concentration."
+            "No, I didn't need his help."
+            jump act1_contact
+        "Don't contact anyone":
+            $ pass
+        
+    "It looked like I was on my own, for now. I'd figure this out later; for now, I had to get to school."
+    "If I was late or absent, the school might try to contact my parents."
+    "And when they couldn't contact them, they might decide I needed to live somewhere else, with total strangers telling me what to do."    
+    return
 
-    
+label lunch2:
+    scene school
+    "The morning passed by quickly"
+   
 
     scene cafeteria
     "As I waited in line for my lunch, I noticed that all the clubs and teams had setup booths around the cafeteria to try to get people to join."
@@ -283,7 +318,7 @@ label act1:
     you "I think it's running? Long distances?"
     emir "Oh, that makes more sense. Too bad it's not like a motorcycle gang or something!"
     you "What's the Maker's Club?"
-    emir "Oh, I had a class in the Makerspace this morning. It's like a room with tools and materials and you can make things. Sometimes they have robots and 3D printers and stuff. So Maker's Club is making things there."
+    emir "Oh, I have a class in the Makerspace. It's like a room with tools and materials and you can make things. Sometimes they have robots and 3D printers and stuff. So Maker's Club is making things there."
     "We got our food and Emir sat down at an empty table. I looked around, but I didn't see anyone else I knew."
 
 return

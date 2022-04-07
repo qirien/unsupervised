@@ -8,6 +8,8 @@ define tabitha = Character("Tabitha")
 define nina = Character("Nina")
 define math_teacher = Character("Mr. Factor")
 define note = Character(kind=nvl)
+define coworker_text = Character("Mark Yao", kind=nvl)
+define you_text = Character("your_name", kind=nvl, dynamic=True)
 
 # VARIABLES FOR STATS
 default health = 100
@@ -59,5 +61,13 @@ label start:
     $ act = 1
     while (act <= 5):
         call expression "act" + str(act)
+        $ act = act + 1
+
+    # Daily Loop (usually random, unless there exists an event for that day)
+    # Morning class events (advisory, gym, math, social studies)
+    # Lunch events/choices (which friend to hang out with)
+    # Afternoon class events (English, science, technology/art?)
+    # After school events/choices (M/W clubs or T/TH clubs or F hangout event?)
+    # Evening events/choices
 
     return
