@@ -4,7 +4,7 @@
 define you = Character("your_name", dynamic=True)
 define ryan = Character("Ryan")
 define emir = Character("Emir", image="emir", who_color="#dac96c")
-define tabitha = Character("Tabitha")
+define tabitha = Character("Tabitha", image="tabitha", who_color="#ee22aa")
 define nina = Character("Nina")
 define math_teacher = Character("Mr. Factor")
 define note = Character(kind=nvl)
@@ -20,7 +20,7 @@ default clues = 0
 default money = 2000
 
 # VARIABLES FOR MC
-default your_name = "You"
+default your_name = " "
 default independent = 0
 default anxious = 0
 default rebellious = 0
@@ -65,9 +65,17 @@ label start:
 
     # Daily Loop (usually random, unless there exists an event for that day)
     # Morning class events (advisory, gym, math, social studies)
+    # IF event for that day #, then do that. ELSE 50% no event, 50% random event.
     # Lunch events/choices (which friend to hang out with)
+    # IF lunch event for that day #, do that. ELSE 50% no event, 50% ask who to hang out with.
     # Afternoon class events (English, science, technology/art?)
+    # IF event for that day #, do that, ELSE 50% no event, 50% random event.
     # After school events/choices (M/W clubs or T/TH clubs or F hangout event?)
+    # Display map and do next event for whatever's chosen. If event for that event count, do that, otherwise placeholder.
     # Evening events/choices
+    # Walk around house and pick what to do.
+
+    # WEEKENDS
+    # IF urgent event, do that. IF event for that day #, do that. ELSE choice of home/park/shopping activities
 
     return

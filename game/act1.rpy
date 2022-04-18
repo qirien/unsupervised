@@ -31,7 +31,7 @@ label act1:
     "My mom was the one who put it together with me."
 
     scene school
-    "We've ridden past the middle school lots of times on our way to the grocery store, so I knew how to get there. It took me a few minutes to figure out where to park my bike, though."
+    "We've ridden past Bradbury Middle School lots of times on our way to the grocery store, so I knew how to get there. It took me a few minutes to figure out where to park my bike, though."
 
     "I took out my schedule and looked over it again. First was advisory in 105... I think it's kind of like homeroom?"
 
@@ -83,15 +83,15 @@ label act1:
             $ rebellious += 1 
             "I sat down and got out my pencil so I'd have something to do with my hands. I started drumming it lightly on the table to a steady beat."
     "Ryan walked in just as the bell rang, and the teacher began."
-    math_teacher "Welcome to middle school! In Advisory we'll hear announcements, take care of problems, and mostly just hang out together once a week."
+    math_teacher "Welcome to Bradbury Middle School! In Advisory we'll hear announcements, take care of problems, and mostly just hang out together once a week."
     math_teacher "You can do homework in here or chat if we don't have anything else going on. But we won't have time for that today! We're going to play a game!"
     "He had so much energy... I couldn't decide whether to groan or smile."
     math_teacher "First, I need everyone to fill out this form. There's just three questions, and one of them is your name, so I know all of you can do it."
     "I got a paper. My pencil felt foreign in my hands... would I even remember how to write? All summer I'd been biking, traveling, or playing video games."
 
-    #screen info_sheet
+    call screen info_sheet()
     math_teacher "Time's up! Now, I want you to take the beautiful paper you worked so hard on... and crumple it up into a ball."
-    "I waited a moment for the punchline, but I guess he was serious, so I crumpled my paper."
+    "I waited a moment for the punchline, but it turned out he was serious, so I crumpled my paper."
     math_teacher "Now we'll have a snowball fight until I blow the whistle!"
     "He threw his paper at me, and I ducked. I threw mine back at him, and soon everyone was throwing paper balls at each other."
     show emir happy at center with dissolve
@@ -303,26 +303,5 @@ label day2:
     "If I was late or absent, the school might try to contact my parents."
     "And when they couldn't contact them, they might decide I needed to live somewhere else, with total strangers telling me what to do."    
     return
-
-label lunch2:
-    scene school
-    "The morning passed by quickly."
-   
-
-    scene cafeteria
-    "As I waited in line for my lunch, I noticed that all the clubs and teams had setup booths around the cafeteria to try to get people to join."
-    show emir happy at center
-    "Emir got in line next to me."
-    if (emir_pts >= 2):
-        emir "Too bad there's no fartball club! You could be the president."
-        you "You'd be the founding father. The George Washington of fartball."
-        emir "Ha ha! Yeah!"
-    "We both looked around the room for a minute."
-    emir "Cross country? What's that, like going on road trips?"
-    you "I think it's running? Long distances?"
-    emir "Oh, that makes more sense. Too bad it's not like a motorcycle gang or something!"
-    you "What's the Maker's Club?"
-    emir "Oh, I have a class in the Makerspace. It's like a room with tools and materials and you can make things. Sometimes they have robots and 3D printers and stuff. So Maker's Club is making things there."
-    "We got our food and Emir sat down at an empty table. I looked around, but I didn't see anyone else I knew."
 
 return
