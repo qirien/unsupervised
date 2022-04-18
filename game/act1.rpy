@@ -198,6 +198,8 @@ label act1:
     "We had some basic ingredients in the fridge, and I'd cooked for the two of us plenty of times before."
     call meal_menu
 
+    scene bedroom night
+
     "Wow, my mom was really working late. That's not too unusual, but I was all by myself in our quiet house."
     menu:
         "I felt..."
@@ -218,7 +220,7 @@ label act1:
             "I texted her a photo of me making a funny face."
         
     # TODO: show phone interface here?
-    "My phone couldn't do much, so I mostly used it to take pictures and talk to my mom."
+    "My phone was a locked down phone and couldn't install apps, so I mostly used it to take pictures and talk to my mom."
     "My dad texted me once in a while; random stuff like a photo of his lunch or from some trip he was on."
     scene kitchen
     "I still had some time before bed..."
@@ -238,9 +240,9 @@ label day2:
     "Her bed hadn't been slept in."
     scene kitchen 
     "No food was missing from the fridge."
-    scene kitchen
+    scene house hallway    
     "There was no new note on the table; no new texts on my phone."    
-    scene house hallway
+    scene kitchen    
     "I searched the house, calling for her and checking every room."
     you "Mom??"
     "What if something had happened to my mom at work? They would have no way to contact me - only my parents had my number."
@@ -252,7 +254,7 @@ label day2:
     "She must have plugged it in to charge and it fell down and she forgot it."
     "She was supposed to be a brilliant scientist, but she was always forgetting things like that."
 
-    "I picked it up and it unlocked. People were always telling us we looked alike."
+    "I picked it up and it unlocked. People were always telling us we looked alike, so I could sometimes fool the face ID."
     # TODO: have a phone interface where you can choose order to check Calendar, Messages, and ...?
     "There was my text from last night, and also some texts from people I didn't recognize."
     "The calendar from yesterday had an event on it called 'Field Test'."
@@ -261,9 +263,10 @@ label day2:
     "Should I call the police? Or my dad? Or one of her coworkers?"
     "I needed to know more first. I started to read her messages."
     # TODO: phone interface, allow to read texts such as
+    nvl clear
     coworker_text "Where did you go?! You weren't at the drop site. I'm guessing you have no reception since we haven't heard from you."
     coworker_text "Anyway, we found the bug; it was a bit shift error in the interface between the input hardware and the main system."
-    coworker_text "I told Mark we needed tests for everything, but he thought the deadline was more important. Anyway, call us when you can!"
+    coworker_text "I told Jen we needed tests for everything, but she thought the deadline was more important. Anyway, call us when you can!"
     "Drop site? Bit shift error? This looked like work stuff."
     you "I guess something went wrong and my mom wasn't where they thought she would be. He didn't sound too worried, though..."
     default act1_contact_set = set()
@@ -289,6 +292,7 @@ label day2:
             "I called his number from my mom's phone, but no one answered. I called it four more times, and he never picked up."
             "No, he wasn't going to be any help. And even if he did answer and invited me to stay with him, would I want to do that?"
             "I remembered the last time I was there...We did go to the amusement park together... but then he wandered off. I spent the day going on rides all by myself."
+            "He showed up at the end of the day and took me home without even apologizing."
             "He spent the rest of my visit doing stuff on his computer. Whenever I'd ask him about it, he'd tell me to go away because I was making him lose his concentration."
             "No, I didn't need his help."
             jump act1_contact
@@ -302,7 +306,7 @@ label day2:
 
 label lunch2:
     scene school
-    "The morning passed by quickly"
+    "The morning passed by quickly."
    
 
     scene cafeteria
