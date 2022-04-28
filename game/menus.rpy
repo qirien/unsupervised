@@ -26,13 +26,14 @@ label freetime_menu(menu_count=1):
                 else:
                     "I had time to watch two episodes."
                 $ menu_count = 0                    
-            "Search for Mom" if (act > 1):
+            "Search for Mom" if (day > 2):
                 "I looked around for clues about where Mom could have gone."
                 $ menu_count = menu_count -1
             
     return
 
 label meal_menu():
+    scene kitchen
     menu:
         "What should I eat?"
         "Cook scrambled eggs.":
@@ -44,7 +45,7 @@ label meal_menu():
             "I ate some carrots and an apple and some crackers and cheese. Easy."
         "Eat junk food.":
             "I pulled out a bag of chips and some fruit snacks. My mom was probably saving them for a special occasion, but too bad. She wasn't here."
-        "Order pizza." if (act > 1): # disable if you haven't found mom's phone yet
+        "Order pizza." if (day > 2): # disable if you haven't found mom's phone yet or you don't have money
             "I used my mom's phone to order a pizza. Thirty minutes later, it arrived. I ate half of it myself and put the other half in the fridge for later."
 
     return

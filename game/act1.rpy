@@ -106,7 +106,7 @@ label act1:
     "The stream of names washed over me like a summer thuderstorm. There was no way I was remembering all of these people."
     ryan "Okay, my paper is by... [your_name]."
     "She paused and scowled."
-    ryan "Umm... [she_he] likes to [hobby] and [her_his] favorite food is [favorite_food]. [she_he] hates it when teachers [hated_action]. That's it."
+    ryan "Umm... [she_he] likes to [hobby] and [her_his] favorite food is [favorite_food]. [she_he!c] hates it when teachers [hated_action]. That's it."
     "I pushed away the memory of the time I brought [favorite_food] to school and shared it with Ryan as we laughed about something silly... That wasn't who she was anymore."
 
     "Soon it was my turn to read."
@@ -198,7 +198,7 @@ label act1:
     "We had some basic ingredients in the fridge, and I'd cooked for the two of us plenty of times before."
     call meal_menu
 
-    scene bedroom night
+    scene bedroom
 
     "Wow, my mom was really working late. That's not too unusual, but I was all by myself in our quiet house."
     menu:
@@ -222,15 +222,13 @@ label act1:
     # TODO: show phone interface here?
     "My phone was a locked down phone and couldn't install apps, so I mostly used it to take pictures and talk to my mom."
     "My dad texted me once in a while; random stuff like a photo of his lunch or from some trip he was on."
-    scene kitchen
-    "I still had some time before bed..."
-    call freetime_menu(1)
     
     scene bedroom night
     "Mom had never worked this late before... but I couldn't stay up forever. I sent her a good night text and went to bed."
+    return
 
-    # DAY 2
-label day2:
+# DAY 2
+label wakeup2:
     
     scene bedroom
     "I woke up the next day to my alarm and the feeling that something was wrong."
@@ -254,7 +252,18 @@ label day2:
     "She must have plugged it in to charge and it fell down and she forgot it."
     "She was supposed to be a brilliant scientist, but she was always forgetting things like that."
 
-    "I picked it up and it unlocked. People were always telling us we looked alike, so I could sometimes fool the face ID."
+    menu:
+        "What should I do?"
+        "Try to unlock it":
+            "People were always telling my mom and I that we looked alike, so I could sometimes fool the face ID."
+            "I never told my mom that, though..."
+            "I picked it up and looked at it... and it unlocked."
+        "Leave it alone":
+            "I picked it up to put it away... wow, lots of notifications."
+            "...I only looked at it for a minute when it unlocked."
+            "People were always telling my mom and I that we looked alike, so I could sometimes fool the face ID."
+            "Guess as long as her phone's unlocked I should make sure she's not in trouble or anything..."
+    
     # TODO: have a phone interface where you can choose order to check Calendar, Messages, and ...?
     "There was my text from last night, and also some texts from people I didn't recognize."
     "The calendar from yesterday had an event on it called 'Field Test'."
@@ -289,7 +298,8 @@ label day2:
             jump act1_contact
         "Call dad":
             "Dad wasn't around much, but parents are supposed to be there for their kids, right?"
-            "I called his number from my mom's phone, but no one answered. I called it four more times, and he never picked up."
+            "I called his number from my mom's phone, but no one answered. I called him from my phone, and he still didnt' answer."
+            "I called him four more times, and he never picked up."
             "No, he wasn't going to be any help. And even if he did answer and invited me to stay with him, would I want to do that?"
             "I remembered the last time I was there...We did go to the amusement park together... but then he wandered off. I spent the day going on rides all by myself."
             "He showed up at the end of the day and took me home without even apologizing."
@@ -302,6 +312,7 @@ label day2:
     "It looked like I was on my own, for now. I'd figure this out later; for now, I had to get to school."
     "If I was late or absent, the school might try to contact my parents."
     "And when they couldn't contact them, they might decide I needed to live somewhere else, with total strangers telling me what to do."    
+    "I hopped on my bike and headed off to school."
     return
 
 return

@@ -15,6 +15,12 @@ init python:
         elif (day % 7 == 0):
             return "Sunday"
 
+    def is_weekend(day):
+        dayname = dayofweek(day)
+        if (dayname == "Saturday") or (dayname == "Sunday"):
+            return True 
+        return False
+
     def random_float():
         return renpy.random.random()
     

@@ -24,7 +24,7 @@ default your_name = " "
 default independent = 0
 default anxious = 0
 default rebellious = 0
-default she_he = "she"
+default she_he = "she" # TODO: if you use they, you end up with 'they is' all over the place... blehhhhhh
 default her_him = "her"
 default her_his = "her"
 default hobby = "draw"
@@ -42,6 +42,11 @@ default magicghoulbus_pts = 0
 # VARIABLES FOR SCHEDULE
 default day = 1
 default clubs = []
+define MAX_DAYS = 30
+default time_block = 0
+define time_blocks = ["morning", "lunch", "afternoon", "afterschool", "evening", "night"] #should evening and night be the same?
+define time_blocks_pretty = ["Morning", "Lunch", "Afternoon", "After School", "Evening", "Night"]
+define MAX_TIMEBLOCKS = 6
 
 # VARIABLES FOR DISPLAY
 transform midleft:
@@ -58,24 +63,38 @@ transform quarterright:
 label start:
     scene bg room
 
-    $ act = 1
-    while (act <= 5):
-        call expression "act" + str(act)
-        $ act = act + 1
-
-    # Daily Loop (usually random, unless there exists an event for that day)
-    # Morning class events (advisory, gym, math, social studies)
-    # IF event for that day #, then do that. ELSE 50% no event, 50% random event.
-    # Lunch events/choices (which friend to hang out with)
-    # IF lunch event for that day #, do that. ELSE 50% no event, 50% ask who to hang out with.
-    # Afternoon class events (English, science, technology/art?)
-    # IF event for that day #, do that, ELSE 50% no event, 50% random event.
-    # After school events/choices (M/W clubs or T/TH clubs or F hangout event?)
-    # Display map and do next event for whatever's chosen. If event for that event count, do that, otherwise placeholder.
-    # Evening events/choices
-    # Walk around house and pick what to do.
-
-    # WEEKENDS
-    # IF urgent event, do that. IF event for that day #, do that. ELSE choice of home/park/shopping activities
+    call act1
+    $ day = 2
+    while (day <= MAX_DAYS):
+        # If we have a wakeup event, do that first
+        $ next_label = "wakeup" + str(day)
+        if (renpy.has_label(next_label)):
+            call expression next_label
+        # Weekend Events
+        # IF urgent event, do that. IF event for that day #, do that. ELSE choice of home/park/shopping activities
+        if (is_weekend(day)):
+            $ next_label = "weekend" + str(day)
+            if (renpy.has_label(next_label)):
+                call expression next_label
+            else:
+                "I slept in and had time to do a few things."
+                call freetime_menu(3)
+                call meal_menu
+        # Weekday Events / School
+        # Morning, Lunch, Afternoon, After School, Evening, Night
+        else:            
+            $ time_block = 0
+            while (time_block < MAX_TIMEBLOCKS):
+                $ next_label = time_blocks[time_block] + str(day)
+                if (renpy.has_label(next_label)):
+                    call expression next_label
+                else: # Should this be instead of or in addition to the previous?
+                    call expression "get_event_" + time_blocks[time_block] pass (day)
+                $ time_block += 1
+        $ day = day + 1
+    
+    # THE END
+    #call ending
+    #call credits
 
     return
