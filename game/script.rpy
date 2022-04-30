@@ -70,8 +70,9 @@ label start:
         $ next_label = "wakeup" + str(day)
         if (renpy.has_label(next_label)):
             call expression next_label
+
         # Weekend Events
-        # IF urgent event, do that. IF event for that day #, do that. ELSE choice of home/park/shopping activities
+        # IF event for that day #, do that. ELSE choice of home/park/shopping activities
         if (is_weekend(day)):
             $ next_label = "weekend" + str(day)
             if (renpy.has_label(next_label)):
@@ -80,15 +81,16 @@ label start:
                 "I slept in and had time to do a few things."
                 call freetime_menu(3)
                 call meal_menu
+
         # Weekday Events / School
-        # Morning, Lunch, Afternoon, After School, Evening, Night
         else:            
             $ time_block = 0
+            # Morning, Lunch, Afternoon, After School, Evening, Night
             while (time_block < MAX_TIMEBLOCKS):
                 $ next_label = time_blocks[time_block] + str(day)
                 if (renpy.has_label(next_label)):
                     call expression next_label
-                else: # Should this be instead of or in addition to the previous?
+                else: 
                     call expression "get_event_" + time_blocks[time_block] pass (day)
                 $ time_block += 1
         $ day = day + 1
