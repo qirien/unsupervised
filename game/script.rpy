@@ -74,6 +74,7 @@ label start:
         # Weekend Events
         # IF event for that day #, do that. ELSE choice of home/park/shopping activities
         if (is_weekend(day)):
+            "Ahhh, the weekend..."
             $ next_label = "weekend" + str(day)
             if (renpy.has_label(next_label)):
                 call expression next_label

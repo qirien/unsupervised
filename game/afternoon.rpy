@@ -44,5 +44,8 @@ label afternoon4:
             nina mad "Gross!"
         "A kid could totally live alone in the woods!":
             you "What are you talking about?! A kid could totally do that! He works hard and he's really smart!"
-            nina sad "Do you know how much watercress you'd need to eat to get 2000 calories per day? "
+            nina sad "Do you know how much watercress you'd need to eat to get 2000 calories per day?"
+            you "He didn't just eat watercress!"
+
+    "I wonder what she would say if she knew I was living on my own..."
     return
