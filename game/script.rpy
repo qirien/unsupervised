@@ -10,6 +10,7 @@ define math_teacher = Character("Mr. Factor")
 define note = Character(kind=nvl)
 define coworker_text = Character("Mark Yao", kind=nvl)
 define you_text = Character("your_name", kind=nvl, dynamic=True)
+define quiz = Character(kind=nvl)
 
 # VARIABLES FOR STATS
 default health = 100
