@@ -33,16 +33,16 @@ label act1:
     scene school
     "We've ridden past Bradbury Middle School lots of times on our way to the grocery store, so I knew how to get there. It took me a few minutes to figure out where to park my bike, though."
 
-    "I took out my schedule and looked over it again. First was advisory in 105... I think it's kind of like homeroom?"
+    "I took out my schedule and looked over it again. First was advisory in 103... I think it's kind of like homeroom?"
 
     "My mom had printed out a map for me. It reminded me of the maps we used on our adventures in the woods or around town."
     "Sometimes she'd hand me the map and make me give her directions. Even if I said to go the wrong way, she'd turn the car wherever I said to go... at least, until I started just always giving directions to the ice cream shop."
 
-    "Anyway. Where's room 105?"
-    #scene school-map
+    "Anyway. Where's room 103?"
+    call find_class("103")
 
     scene school hallway
-    "I headed off towards 105. I knew I was going the right way when I passed the library, just like the map said."
+    "I headed off towards 103. I knew I was going the right way when I passed the library, just like the map said."
     "Hey, isn't that Ryan from elementary school?! She's so much taller now! We used to eat lunch together all the time."
     you "Hey, Ryan!"
     "She stopped, looked right at me, and then scowled and started to walk away."
@@ -66,7 +66,7 @@ label act1:
             you "Oh, sorry, I thought you were someone else. Someone who knows what the word 'friend' means."
             "She rolled her eyes at me and walked off."
 
-    "I was still upset by the time I reached room 105."           
+    "I was still upset by the time I reached room 103."           
 
     scene classroom
     "It looked like a math classroom, with origami cubes and stars hanging from the ceiling and posters about lines and angles and equations."
@@ -106,7 +106,7 @@ label act1:
     "The stream of names washed over me like a summer thuderstorm. There was no way I was remembering all of these people."
     ryan "Okay, my paper is by... [your_name]."
     "She paused and scowled."
-    ryan "Umm... [she_he] likes to [hobby] and [her_his] favorite food is [favorite_food]. [she_he!c] hates it when teachers [hated_action]. That's it."
+    ryan "Umm... [she_he] like[she_he_s] to [hobby] and [her_his] favorite food is [favorite_food]. [she_he!c] hate[she_he_s] it when teachers [hated_action]. That's it."
     "I pushed away the memory of the time I brought [favorite_food] to school and shared it with Ryan as we laughed about something silly... That wasn't who she was anymore."
 
     "Soon it was my turn to read."
@@ -116,7 +116,7 @@ label act1:
     ryan "You already sound stupid."
     math_teacher "Hey, in this class, I expect everyone to talk respectfully to and about each other."
     "He looked at Ryan, but she just rolled her eyes and I continued."
-    you "Emir hates in when teachers are boring, and he likes tacos and playing flag..."
+    you "Emir hates it when teachers are boring, and he likes tacos and playing flag..."
     "I could barely read the next word. It looked like 'fartball' but it was probably supposed to be 'football'..."
     menu:
         "What should I say?"
@@ -140,10 +140,15 @@ label act1:
     "By the time the rest of the class introduced themselves, advisory was over."
     math_teacher "One more thing -- tomorrow at lunch all the clubs and sports will have booths. Go check them out! It's a great way to make new friends and do cool stuff!"
     "Clubs? Sports? In elementary school we had after school clubs, but sometimes they felt more like babysitting. Maybe middle school would be different."
+    "After advisory, I had gym, math, and social studies. By the time it was lunch I was really hungry!"
 
-    scene black
-    # TODO: more map class-finding minigame?
-    "After a few classes, and only getting lost twice, I made it to lunch."
+    menu:
+        "Should I use my map or follow the crowd?"
+        "Use my map":
+            call find_class("the cafeteria")
+        "Follow the crowd":
+            "Everyone seemed to be headed the same way, so I just went that way too. Sure enough, we ended up at the cafeteria."
+
     scene cafeteria
     "I waited in line for a chicken sandwich with tater tots and orange slices. Then I had to try and figure out where to sit..."
     "I didn't see anyone I knew. Well, Ryan was in the corner with her new friends, but I wasn't going to sit by her!"

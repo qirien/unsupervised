@@ -1,4 +1,8 @@
 label freetime_menu(menu_count=1):
+    call adventure_mode("Hallway")
+return
+
+label textfreetime_menu(menu_count=1):
     while (menu_count > 0):
         # TODO: Add more options, randomness here
         menu:

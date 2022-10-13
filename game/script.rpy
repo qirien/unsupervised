@@ -21,11 +21,13 @@ default clues = 0
 default money = 2000
 
 # VARIABLES FOR MC
-default your_name = " "
+default your_name = "Me"
 default independent = 0
 default anxious = 0
 default rebellious = 0
-default she_he = "she" # TODO: if you use they, you end up with 'they is' all over the place... blehhhhhh
+default she_he = "she"
+default she_he_is = "she is"
+default she_he_s = "s"
 default her_him = "her"
 default her_his = "her"
 default hobby = "draw"
@@ -48,6 +50,12 @@ default time_block = 0
 define time_blocks = ["morning", "lunch", "afternoon", "afterschool", "evening", "night"] #should evening and night be the same?
 define time_blocks_pretty = ["Morning", "Lunch", "Afternoon", "After School", "Evening", "Night"]
 define MAX_TIMEBLOCKS = 6
+
+# VARIABLES FOR ADVENTURE MODE
+default current_room = "Hallway"
+default previous_room = ""
+default move_count = 0
+default in_room = False
 
 # VARIABLES FOR DISPLAY
 transform midleft:
