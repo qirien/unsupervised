@@ -1,7 +1,7 @@
 ﻿# Define variables and run init code
 
 # CHARACTERS
-define you = Character("your_name", dynamic=True)
+define you = Character("your_name", dynamic=True, who_color="#59c3cf")
 define ryan = Character("Ryan")
 define emir = Character("Emir", image="emir", who_color="#dac96c")
 define tabitha = Character("Tabitha", image="tabitha", who_color="#ee22aa")
