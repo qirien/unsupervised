@@ -5,6 +5,55 @@ label get_event_morning(curr_day):
     "Advisory, gym, math, social studies... I went to class like a good little robot."
     return
 
+label morning_a:
+    "In gym class we played ultimate frisbee. I felt like I ran up and down the field a hundred times!"
+    "The frisbee is coming my way!"
+    $catch = renpy.random.randint(0,3) # TODO: have this based on whether you do physical activities or not
+    if (catch == 2):
+        "I caught it, and passed it on to my teammate to score!"
+        "I made sure I was open to catching more passes and helped my team score points."
+    else:
+        "I tried to catch it, but it just bounced off my hand."
+        "No one passed to me again after that, so I just played defense."
+    return
+
+label morning_b:
+    "In Social Studies class we were learning about ancient Egypt."
+    "Even back then kids had to go to school, but they also learned skills and played games."
+    "Our teacher had us write a short story about a kid living in ancient Egypt."
+    "I decided to write about..."
+    menu:
+        "A rich kid who lived in the palace":
+            you "Akila knew how to read and write and she loved playing Dogs and Jackals with her dad..."
+        "A slave kid who worked hard on a farm":
+            you "The only time Asim got to play was when the floods came. But this time, they said he was old enough to help build a great statue..."
+        "An orphan kid who lived on his own":
+            you "Omari ran away from being a slave and snuck into the palace school. The tutor was so impressed with his bravery that he invited him to come learn every day..."
+    "Kids often died from diseases and accidents... it was hard to imagine living in such a dangerous time."
+    return
+
+label morning_c:
+    "Sometimes, math was all lectures and worksheets..."
+    "...but sometimes we had to work in groups."
+    show calvin at center
+    calvin "Don't expect me to do all the work in our group just because I'm good at math."
+    menu:
+        "What should I do?"
+        "Work as little as possible.":
+            $ rebellious += 1
+            you "You can't expect me to do all the work, either! I don't even know what to do."
+            calvin mad "It's so easy! Look, you just do it like this..."
+            "I was able to get Calvin to do most of the work by pretending I didn't know how."
+        "Make a plan for splitting things up evenly.":
+            $ independent += 1
+            you "Obviously. You answer the evens, I'll do the odds, then we'll check each other's work."
+            calvin "That... that sounds fair."
+        "Just work by yourself so you don't have to deal with other people.": 
+            $ anxious += 1
+            you "Let's just work on our own."
+            calvin "Fine, I don't trust your answers anyway."
+    return
+
 # Day 14 morning event
 # TODO: adjust timing as needed
 label morning_14:
