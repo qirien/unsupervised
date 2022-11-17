@@ -21,7 +21,7 @@ label adventure_mode(start_room):
 
     $ in_room = True
     $ renpy.call_screen(current_room + "Screen")
-    return
+    return current_room
 
 init python:
     def dayofweek(day):

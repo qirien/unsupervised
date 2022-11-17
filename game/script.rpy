@@ -72,7 +72,9 @@ transform quarterright:
 label start:
     scene bg room
 
+    # INTRO is special
     call act1
+    
     $ day = 2
     while (day <= MAX_DAYS):
         # If we have a wakeup event, do that first

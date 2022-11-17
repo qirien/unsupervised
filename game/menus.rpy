@@ -1,5 +1,9 @@
 label freetime_menu(menu_count=1):
-    call adventure_mode("Hallway")
+    $ picked_room = "Hallway"
+    while (menu_count > 0):
+        call adventure_mode(picked_room)
+        $ picked_room = _return
+        $ menu_count = menu_count -1
 return
 
 label textfreetime_menu(menu_count=1):

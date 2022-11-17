@@ -2,6 +2,7 @@
 # Afternoon classes include language arts (Nina), science (Tabitha), and technology/art?
 label get_event_afternoon(curr_day):
     scene classroom
+    # If there's a number for today (or sequence?), do that. Otherwise, 
     # Half the time, do a random letter. The other half of the time, no event
     "Language Arts, Science, and Technology class... my classes passed by."
     return
@@ -22,7 +23,7 @@ label afternoon_b:
     "In Technology class we were practicing our typing skills by typing famous quotations."
     you "To say of what is that it is not, or of what is not that it is, is false, while to say of what is that it is, and of what is not that it is not, is true."
     you "What was Aristotle thinking when he wrote that??"
-     return
+    return
 
 label afternoon_c:
     scene science
@@ -67,7 +68,7 @@ label afternoon_d:
             "My essay turned out boring, but I didn't care."
     return
 
-label afternoon2:
+label afternoon_2:
     scene technology
     "We started off Technology class with typing lessons. I thought that was kind of dumb since I was already kind of good at typing from playing video games and talking to people there."
     "But maybe it would be nice to be faster at typing."
@@ -77,7 +78,7 @@ label afternoon2:
     "I was able to get the class record for fastest typing today!"  #TODO: Make this dependent on 'grades' or 'independent'?
     return
 
-label afternoon4:
+label afternoon_4:
     "In Language Arts class we were reading \"My Side of the Mountainn\"."
     "It's a book about a kid who runs away from home to live in the woods all by himself."
     "At least I already had a house full of food to live in... "
