@@ -4,7 +4,7 @@
 
 label get_event_lunch(curr_day):
     scene cafeteria
-    "I ate my lunch and wandered around for the [curr_day]st time. It felt good to be outside in the sunshine."
+    "I ate my lunch and wandered around, just like I had for the past [curr_day] school days. It felt good to be outside in the sunshine."
     return
 
 
@@ -13,7 +13,7 @@ label get_event_lunch(curr_day):
 label lunch2:
     scene school
     "The morning passed by quickly."
-   
+
 
     scene cafeteria
     "As I waited in line for my lunch, I noticed that all the clubs and teams had setup booths around the cafeteria to try to get people to join."
@@ -29,4 +29,4 @@ label lunch2:
     emir "Oh, that makes more sense. Too bad it's not like a motorcycle gang or something!"
     you "What's the Maker's Club?"
     emir "Oh, I have a class in the Makerspace. It's like a room with tools and materials and you can make things. Sometimes they have robots and 3D printers and stuff. So Maker's Club is making things there."
-    "We got our food and Emir sat down at an empty table. I looked around, but I didn't see anyone else I knew."    
+    "We got our food and Emir sat down at an empty table. I looked around, but I didn't see anyone else I knew."

@@ -1,9 +1,10 @@
 label freetime_menu(menu_count=1):
     $ picked_room = "Hallway"
     while (menu_count > 0):
+        $ print("Starting ADV mode on: " + picked_room + "  Count: " + str(menu_count))
         call adventure_mode(picked_room)
-        $ picked_room = _return
-        $ menu_count = menu_count -1
+        $ picked_room = current_room
+        $ menu_count = menu_count-1
 return
 
 label textfreetime_menu(menu_count=1):
@@ -33,11 +34,11 @@ label textfreetime_menu(menu_count=1):
                     "Before I knew it, several hours had passed."
                 else:
                     "I had time to watch two episodes."
-                $ menu_count = 0                    
+                $ menu_count = 0
             "Search for Mom" if (day > 2):
                 "I looked around for clues about where Mom could have gone."
                 $ menu_count = menu_count -1
-            
+
     return
 
 label meal_menu():

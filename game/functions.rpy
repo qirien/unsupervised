@@ -15,13 +15,13 @@ label find_class(desired_room):
 label adventure_mode(start_room):
     $ current_room = start_room
     $ previous_room = start_room
-    
-    $ renpy.show_screen(current_room + "Screen")
+
+    #$ renpy.show_screen(current_room + "Screen")
     window auto hide
 
     $ in_room = True
     $ renpy.call_screen(current_room + "Screen")
-    return current_room
+    return
 
 init python:
     def dayofweek(day):
@@ -43,12 +43,12 @@ init python:
     def is_weekend(day):
         dayname = dayofweek(day)
         if (dayname == "Saturday") or (dayname == "Sunday"):
-            return True 
+            return True
         return False
 
     def random_float():
         return renpy.random.random()
-    
+
     def random_int(min, max):
         return renpy.random.randint(min, max)
 
@@ -67,12 +67,12 @@ init -100:
         on hover:
             additive 0.2
         on idle:
-            additive 0.0 
+            additive 0.0
 
     transform alpha_imagebutton():
         on start:
             alpha 0.6
         on idle:
-            alpha 0.6      
+            alpha 0.6
         on hover:
-            alpha 1.0            
+            alpha 1.0
