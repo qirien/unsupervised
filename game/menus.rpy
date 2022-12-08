@@ -1,3 +1,6 @@
+# This gets called when you have free time.
+# It changes to adventure mode and lets you do a certain number of things.
+# TODO: Should this allow for smaller events, maybe giving a certain number of hours and each event takes a fraction of an hour?
 label freetime_menu(menu_count=1):
     $ picked_room = "Hallway"
     while (menu_count > 0):
@@ -41,6 +44,9 @@ label textfreetime_menu(menu_count=1):
 
     return
 
+# Cooking menu
+# TODO: have different options depending on how late/hungry
+# TODO: have some random options
 label meal_menu():
     scene kitchen
     menu:
@@ -54,7 +60,7 @@ label meal_menu():
             "I ate some carrots and an apple and some crackers and cheese. Easy."
         "Eat junk food.":
             "I pulled out a bag of chips and some fruit snacks. My mom was probably saving them for a special occasion, but too bad. She wasn't here."
-        "Order pizza." if (day > 2): # disable if you haven't found mom's phone yet or you don't have money
+        "Order pizza." if (day > 2): # TODO: disable if you haven't found mom's phone yet or you don't have money
             "I used my mom's phone to order a pizza. Thirty minutes later, it arrived. I ate half of it myself and put the other half in the fridge for later."
 
     return
