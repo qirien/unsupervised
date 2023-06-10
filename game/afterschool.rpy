@@ -2,7 +2,9 @@
 # After School includes clubs, hanging out at the park, etc
 label get_event_afterschool(curr_day):
     scene school
-    # TODO: Replace with a cool map 
+    # TODO: Replace with a cool map ?
+    # call screen MapScreen
+
     menu:
         "What should I do after school?"
         "Go to the Makerspace":
@@ -15,6 +17,6 @@ label get_event_afterschool(curr_day):
             "I climbed some easy walls and tried some hard bouldering problems."
         "Go to the park":
             "I rode my bike around and stopped at the park to chase some pigeons."
-        
+
     "Then I went home."
     return

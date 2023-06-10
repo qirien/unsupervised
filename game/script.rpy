@@ -7,6 +7,7 @@ define emir = Character("Emir", image="emir", who_color="#dac96c")
 define tabitha = Character("Tabitha", image="tabitha", who_color="#ee22aa")
 define nina = Character("Nina")
 define math_teacher = Character("Mr. Factor")
+define drama_teacher = Character("Ms. Hicks")
 define note = Character(kind=nvl)
 define coworker_text = Character("Mark Yao", kind=nvl)
 define you_text = Character("your_name", kind=nvl, dynamic=True)
@@ -41,6 +42,12 @@ default calvin_pts = 0
 default emir_pts = 0
 default tabitha_pts = 0
 default magicghoulbus_pts = 0
+
+default met_nina = False
+default met_calvin = False
+default met_emir = True
+default met_tabitha = False
+default met_magicghoulbus = False
 
 # VARIABLES FOR SCHEDULE
 default day = 1

@@ -18,7 +18,7 @@ screen MasterBedroomScreen():
             yalign 0.5
             at alpha_imagebutton
 
-        # TODO: Add research on Mom's computer button
+        # TODO: Look for Clues only after day 1
         # Actions for this room
         vbox:
             yalign 0.5

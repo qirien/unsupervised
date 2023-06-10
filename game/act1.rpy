@@ -52,7 +52,7 @@ label act1:
     ryan "Oh, just someone I know. Nobody important."
     
     menu:
-        "How did that make me feel?"
+        "I felt..."
         "Furious":
             $ independent += 1
             "That made me so mad! We ate lunch together every day, and she always wanted to play tetherball, and I played it with her even though I don't even like tetherball!"
