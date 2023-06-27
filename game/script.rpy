@@ -5,12 +5,13 @@ define you = Character("your_name", dynamic=True, who_color="#59c3cf")
 define ryan = Character("Ryan")
 define emir = Character("Emir", image="emir", who_color="#dac96c")
 define tabitha = Character("Tabitha", image="tabitha", who_color="#ee22aa")
-define nina = Character("Nina")
+define nina = Character("Nina", image="nina", who_color="#eedd11")
 define math_teacher = Character("Mr. Factor")
 define drama_teacher = Character("Ms. Hicks")
 define note = Character(kind=nvl)
 define coworker_text = Character("Mark Yao", kind=nvl)
 define you_text = Character("your_name", kind=nvl, dynamic=True)
+define mom_text = Character("Unknown Number", kind=nvl)
 define quiz = Character(kind=nvl)
 
 # VARIABLES FOR STATS
@@ -18,8 +19,10 @@ default health = 100
 default stress = 0
 default grades = 0
 default house = 100
-default clues = 0
+default research_pts = 0
+default research_next = 0
 default money = 2000
+default looked_for_clues = False
 
 # VARIABLES FOR MC
 default your_name = "Me"
@@ -43,11 +46,18 @@ default emir_pts = 0
 default tabitha_pts = 0
 default magicghoulbus_pts = 0
 
+default nina_next = 0
+default calvin_next = 0
+default emir_next = 0
+default tabitha_next = 0
+default magicghoulbus_next = 0
+
 default met_nina = False
 default met_calvin = False
 default met_emir = True
 default met_tabitha = False
 default met_magicghoulbus = False
+default met_mark = False
 
 # VARIABLES FOR SCHEDULE
 default day = 1
@@ -84,6 +94,8 @@ label start:
     
     $ day = 2
     while (day <= MAX_DAYS):
+        # Reset for a new day
+        $ looked_for_clues = False
         # If we have a wakeup event, do that first
         $ next_label = "wakeup" + str(day)
         if (renpy.has_label(next_label)):

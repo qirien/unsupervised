@@ -253,6 +253,7 @@ label wakeup2:
     # TODO: sfx
     "A song suddenly started playing, and my heartbeat raced like a startled deer."
     "It was my mom's phone."
+    scene house hallway
     "I searched around and found it on the floor but still plugged in."
     "She must have plugged it in to charge and it fell down and she forgot it."
     "She was supposed to be a brilliant scientist, but she was always forgetting things like that."
@@ -296,6 +297,7 @@ label wakeup2:
             "I mean, it wasn't technically lying. I did have someone taking care of me -- myself."
             coworker_text "Don't worry! We'll figure this out. And I'll let you know if I talk to your mom, okay?"
             you_text "Okay."
+            $ met_mark = True
             jump act1_contact
         "Call the police":
             "I started to dial the emergency number... but then stopped. What would happen if I did? Would they take me away to live with some strangers? Would they think my mom wasn't doing a good job and send me to live with my dad?"
@@ -311,7 +313,7 @@ label wakeup2:
             "He spent the rest of my visit doing stuff on his computer. Whenever I'd ask him about it, he'd tell me to go away because I was making him lose his concentration."
             "No, I didn't need his help."
             jump act1_contact
-        "Don't contact anyone":
+        "Nothing":
             $ pass
         
     "It looked like I was on my own, for now. I'd figure this out later; for now, I had to get to school."

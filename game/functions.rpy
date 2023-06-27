@@ -61,6 +61,31 @@ init python:
             return "independent"
 
 
+
+# If you have enough points to move on to the next plot event, great.
+# Otherwise, you get a generic event.
+init -100:
+    python:
+        def get_next_event(event_type):
+            next_event_number = eval(event_type + "_next")
+            next_unseen_event = event_type + str(next_event_number)
+            # if we went past the number of events written, just go to the final one.
+            if (not renpy.has_label(next_unseen_event)):
+                next_unseen_event = event_type + "_final"
+                return next_unseen_event
+
+            # Do we have enough points for this?
+            points = eval(event_type + "_pts")
+            renpy.notify("Pts:" + str(points) + "  i:" + str(next_event_number) + "  next_label=" + str(next_unseen_event))
+            if points >= (2*next_event_number): # TODO adjust this calculation
+                if (renpy.has_label(next_unseen_event)):
+                    return next_unseen_event
+
+            # No better event, just use the random one
+            next_unseen_event = event_type + "_random"
+            return next_unseen_event
+
+
 # Utility functions and variables used elsewhere
 init -100:
     transform highlight_imagebutton():

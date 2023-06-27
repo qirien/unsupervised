@@ -1,7 +1,13 @@
 # Events for the Drama Club, which leads to better friendship with Nina.
 
+# Random generic events
+label nina_random:
+    "We played some improv games and practiced a song."
+    $ nina_pts += 1
+    return
+
 # First visit to drama club
-label nina1:
+label nina0:
     "I wasn't sure what to expect at Drama Club."
     "Reciting Shakespeare? Belting out Disney songs? Acting out tragic deaths from zombie attacks?"
     "The Drama teacher had us all play a name game first."
@@ -59,65 +65,155 @@ label nina1:
         "Scissor hands":
             "I made a V with my two fingers and opened and closed them like scissors."
 
-        "Whew. I felt bad for the kid at the end, who had to do like fifteen names and gestures."
-        drama_teacher "Great! Now get into pairs for this next game!"
-        "Nina turned to me."
-        nina "Hey, want to be partners?"
-        you "Okay."
-        drama_teacher "With your partner, create a quick scene. BUT-- you can only use the words 'yes', 'no', 'please' and 'banana'! Start now!"
-        nina "Okay, this will be great. Let's say we are secret agents. And the code word is 'banana'."
-        nina "So I'm going around asking everyone 'banana' but I keep getting the wrong person! Finally you say 'banana' back and I'm just so happy! Let's try it, okay?"
-        "Wow. She already had an idea? She seemed so excited... I figured I could try it."
-        you "Okay."
-        "She looked around exaggeratedly, and then tiptoed over to stage whisper into my ear,"
-        nina "Banana?"
-        "I shrugged."
-        nina "(Now, stand over here so it looks like you're someone else!)"
-        nina "Banana?"
-        "I couldn't let her do all the acting, so I used my best tough guy voice to say,"
-        you "No!"
-        nina "(That's great! Okay, one more and then it'll be the right person.)"
-        nina "Banana?"
-        "I used a funny accent to say,"
-        you "No."
-        nina "(Yes! Awesome!)"
-        nina "Banana!"
-        "I looked around sneakily and muttered back,"
-        you "Banana."
-        nina "Great job! Let's practice one more time because I think we have time. I love all the different voices you did! Make sure you act like the voices, too, with your body language."
-        "Wow, she was good at this. She'd clearly had some acting experience before."
+    "Whew. I felt bad for the kid at the end, who had to do like fifteen names and gestures."
+    drama_teacher "Great! Now get into pairs for this next game!"
+    "Nina turned to me."
+    nina "Hey, want to be partners?"
+    you "Okay."
+    drama_teacher "With your partner, create a quick scene. BUT-- you can only use the words 'yes', 'no', 'please' and 'banana'! Start now!"
+    nina "Okay, this will be great. Let's say we are secret agents. And the code word is 'banana'."
+    nina "So I'm going around asking everyone 'banana' but I keep getting the wrong person! Finally you say 'banana' back and I'm just so happy! Let's try it, okay?"
+    "Wow. She already had an idea? She seemed so excited... I figured I could try it."
+    you "Okay."
+    "She looked around exaggeratedly, and then tiptoed over to stage whisper into my ear,"
+    nina "Banana?"
+    "I shrugged."
+    nina "(Now, stand over here so it looks like you're someone else!)"
+    nina "Banana?"
+    "I couldn't let her do all the acting, so I used my best tough guy voice to say,"
+    you "No!"
+    nina "(That's great! Okay, one more and then it'll be the right person.)"
+    nina "Banana?"
+    "I used a funny accent to say,"
+    you "No."
+    nina "(Yes! Awesome!)"
+    nina "Banana!"
+    "I looked around sneakily and muttered back,"
+    you "Banana."
+    nina "Great job! Let's practice one more time because I think we have time. I love all the different voices you did! Make sure you act like the voices, too, with your body language."
+    "Wow, she was good at this. She'd clearly had some acting experience before."
 
-        drama_teacher "Time's up! Let's see what you came up with!"
-        "All the skits were silly, but we really made everyone laugh with our exaggerated motions and accents."
-        drama_teacher "So many great ideas! In this club we'll be playing drama games, but we'll also be putting on a play for your parents and friends."
-        drama_teacher "So I hope you will take drama club seriously, especially once parts are handed out! That's it for today!"
+    drama_teacher "Time's up! Let's see what you came up with!"
+    "All the skits were silly, but we really made everyone laugh with our exaggerated motions and accents."
+    drama_teacher "So many great ideas! In this club we'll be playing drama games, but we'll also be putting on a play for your parents and friends."
+    drama_teacher "So I hope you will take drama club seriously, especially once parts are handed out! That's it for today!"
 
-        "The students got up to leave and Nina turned to me."
+    "The students got up to leave and Nina turned to me."
 
-        nina "A play! I'm so excited! I hope it's something with lots of action and drama! I wonder if it will be a musical?!"
-        "She started singing,"
-        nina "🎶 Some-where, o-ver the rain-bow! 🎶"
+    nina "A play! I'm so excited! I hope it's something with lots of action and drama! I wonder if it will be a musical?!"
+    "She started singing,"
+    nina "🎶 Some-where, o-ver the rain-bow! 🎶"
 
-        menu:
-            "What should I say?"
-            "🎶 Way upppp high 🎶":
-                you "🎶 Way upppp high 🎶"
-                "She grins with delight and you sing the rest of the stanza together."
-                $ nina_pts += 1
-                nina "I can tell this year is going to be great!"
-            "Is that from a musical?":
-                you "Is that from a musical or something?"
-                nina "Have you never seen 'The Wizard of Oz'?! You've got to watch it! You should come over and watch it with me sometime! There's lions, and tigers, and bears, OH MY!"
-            "(Say nothing)":
-                "It was time to go. I put on my backpack and headed to the door."
-        nina "Oh no! What am I doing?! I was supposed to leave thirty minutes ago to be on time for... for something important! See you all later!"
-        "She snatched up her backpack and sprinted out of the room, her curls bouncing up and down as she ran."
-        "She sure had a lot of energy!"
+    menu:
+        "What should I say?"
+        "🎶 Way upppp high 🎶":
+            you "🎶 Way upppp high 🎶"
+            "She grinned with delight and we sang the rest of the stanza together."
+            $ nina_pts += 1
+            nina "I can tell this year is going to be great!"
+        "Is that from a musical?":
+            you "Is that from a musical or something?"
+            nina "Have you never seen 'The Wizard of Oz'?! You've got to watch it! You should come over and watch it with me sometime! There's lions, and tigers, and bears, OH MY!"
+        "(Say nothing)":
+            "It was time to go. I put on my backpack and headed to the door."
+    nina "Oh no! What am I doing?! I was supposed to leave thirty minutes ago to be on time for... for something important! See you all later!"
+    "She snatched up her backpack and sprinted out of the room, her curls bouncing up and down as she ran."
+    "She sure had a lot of energy!"
+
+    $ nina_next += 1
+    return
+
+label nina1:
+    "I headed to Drama club and was one of the first people there."
+    drama_teacher "Welcome, [your_name]. How's your day?"
+    you "Okay."
+    drama_teacher "That answer might work for most teachers, but I want the truth! Or, if you must lie, exaggerate shamelessly!"
+    you "It was better than playing catch with a wasp nest, but not as good as eating chocolates in a jello bath."
+    drama_teacher "Much better! Some days are like that!"
+
+    drama_teacher "Now that everyone's here, I'm excited to share with you the play we will be performing!"
+    drama_teacher "We are going to create our own play based on 'The Monkey's Paw' - have you read it?"
+    "Most of us shook our heads, but Nina squealed and clapped her hands."
+    drama_teacher "It's a short story, which I want you all to read on your own, but the setup is there's an object that grants three wishes, but they come true in the most terrible ways possible."
+    nina "Like, you wish for an A on a test, which you get, but because you got every question exactly right the teacher thinks you cheated and you get in trouble?"
+    drama_teacher "Exactly. So what we're going to do today is break up into pairs, and each pair will think of a wish gone wrong and act it out."
+    "I looked around for who could be my partner. Nina was the only other person I knew in Drama club..."
+    "...but she was already paired up with another girl."
+    "While I was deliberating, everyone else had found a partner and I was left standing alone like a dead tree in the desert!"
+    menu:
+        "What should I do?"
+        "Ask to join Nina's group":
+            you "Ummm, Nina, can I join your group? There's an odd number..."
+            nina "Sure!"
+            $ nina_pts += 1
+        "Ask to join a different group":
+            you "Ummm, hey, can I join your group? There's an odd number..."
+            nina "You can join our group!"
+        "Stand around awkwardly hoping someone notices":
+            you "..."
+            drama_teacher "Oh, you don't have a group? Here, Nina, let [your_name] join you for a group of three."
+            nina "Okay!"
+
+    nina "So I was thinking, people always wish for money or fame or romance or something... but we should do something different! What's a really weird yet oddly understandable wish?"
+    you "Ummm... bringing someone back who's gone?"
+    nina "That's just like the story! We need something different!"
+    "We thought for a few minutes."
+    default nina1_set = set()
+    menu nina1_set:
+        set nina1_set
+        "What about wishing for..."
+        "more wishes?":
+            you "Can you wish for more wishes?"
+            nina "I mean, maybe, but in the case of the Monkey's Paw that's not necessarily a good thing."
+            jump nina1_set
+        "being really smart?":
+            you "Being really smart? Like, smart enough to think of better wishes? How could that backfire?"
+            nina "Ohhh, yes, you wish to be really smart, but it ends up giving you a brain disease where your brain never stops growing and eventually it gets too big for your head and you die!"
+            "Nina played the wisher and I was the doctor who gave her the bad news. The other girl was her friend who came with her and cried very convincingly."
+        "infinite pizza?":
+            you "Infinite pizza?"
+            nina "What? No, that's too obvious. You'd suffocate under a pizza avalanche or something."
+            jump nina1_set
+        "an enemy to disappear?":
+            you "What if you wished for your enemy to disappear?"
+            "I certainly wouldn't minded if Ryan disappeared." # TODO: don't say this if you're friends with Ryan
+            nina "Ooh, yeah, and then your enemy literally turns invisible! So they're even MORE annoying!"
+            "Nina played the wisher and I was her invisible enemy tormenting her. The other girl in our group did a good job of being the wisher's friend who tried to get Nina to stop wishing."
+
+    "We shared our idea with the class. Some of the ideas were silly, but there were some interesting ones, too, like the one whose first wish was for wishes to always come out good."
+    "Even then, the wishes weren't always good for the wisher!"
+    "Then there was the wisher who kept trying to get some food, but other people kept eating it before he could. It was so sad but so funny!"
+    "This was going to be an interesting play..."
+
+    $ nina_next += 1
     return
 
 label nina2:
+    "We are practicing our play! But Nina couldn't be there? She's hiding something!"
 
+    $ nina_next += 1
     return
 
 label nina3:
+    "Play practice! I asked Nina why she wasn't there and she wouldn't tell me! She is bullied, giving hints about why she won't talk."
+    $ nina_next += 1
+    return
+
+label nina4:
+    "Nina apologizes and explains what's going on. She has to decide whether to be in the school play or take an acting job"
+    $ nina_next += 1
+    return
+
+label nina5:
+    "The school play! Either Nina performs or she watches the play. You forget a line but it's ok!"
+    $ nina_next += 1
+    return
+
+label nina6:
+    "Great job on the school play everyone! Nina appreciates your support!"
+    $ nina_next += 1
+    return
+
+label nina_final:
+    "We don't have a play, so we're just helping the teacher out. Nina isn't there, though."
     return

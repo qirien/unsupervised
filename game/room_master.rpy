@@ -23,4 +23,5 @@ screen MasterBedroomScreen():
         vbox:
             yalign 0.5
             xalign 0.5
-            textbutton "Look for Clues" action Call("research")
+            if ((day>=4) and (looked_for_clues == False)):
+                textbutton "Look for Clues" action Call("research")
