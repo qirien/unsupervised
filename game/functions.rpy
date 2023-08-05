@@ -7,7 +7,8 @@ label find_class(desired_room):
             $ random_response = renpy.random.choice(
             ["I tried to follow the map, but ended up at [picked_room] instead. Guess I'll have to try again.",
             "Whoa, how did I end up at [picked_room]? I looked at my map again.",
-            "Well, I wasn't at [desired_room], but at least I found out where [picked_room] was."
+            "Well, I wasn't at [desired_room], but at least I found out where [picked_room] was.",
+            "This wasn't [desired_room]. Ugh."
             ])
             $ renpy.say(None, random_response)
     return

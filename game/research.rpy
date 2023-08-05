@@ -9,7 +9,7 @@ label research:
     return
 
 label research_random:
-    "I rummaged through my mom's stuff, looking for clues."
+    "I rummaged through my mom's stuff, looking for clues. I didn't find any, though."
     $ research_pts += 1
     return
 
@@ -24,9 +24,9 @@ label research0:
     mom_text "Don't know if you'll get this, had to borrow a phone, not everyone has them out here. Yours is only number I have memorized. If work calls, show them my message. Trying to send a pic."
     mom_text "Guess you're not on your phone now; good job, [your_name]. I gotta go, though, so I won't get replies. Text you again when I can."
     you_text "Mom?! Mom, it's [your_name]! Where are you?!"
-    mom_text "Извини. я не могу тебе помочь"
+    mom_text "Извини. я не могу тебе помочь."
     "That response... the letters definitely weren't English. I searched for that phrase..."
-    you "Looks like it's... Russian?"
+    you "Looks like it's... Russian? 'Sorry, I can't help you'."
     you "There's a lot of countries that speak Russian..."
 
     "I returned to the photo she sent."

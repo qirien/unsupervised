@@ -14,6 +14,9 @@ define you_text = Character("your_name", kind=nvl, dynamic=True)
 define mom_text = Character("Unknown Number", kind=nvl)
 define quiz = Character(kind=nvl)
 
+define student = Character("Male Student")
+define student2 = Character("Female Student")
+
 # VARIABLES FOR STATS
 default health = 100
 default stress = 0
@@ -37,6 +40,9 @@ default her_his = "her"
 default hobby = "draw"
 default favorite_food = "pizza"
 default hated_action = "are hypocritical"
+
+# VARIABLES FOR PLOT THINGS
+default drama_lucky_object = "sombrero"
 
 
 # VARIABLES FOR FRIENDSHIPS

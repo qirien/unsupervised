@@ -176,7 +176,7 @@ label nina1:
             jump nina1_set
         "an enemy to disappear?":
             you "What if you wished for your enemy to disappear?"
-            "I certainly wouldn't minded if Ryan disappeared." # TODO: don't say this if you're friends with Ryan
+            "I certainly wouldn't mind if Ryan disappeared." # TODO: don't say this if you're friends with Ryan
             nina "Ooh, yeah, and then your enemy literally turns invisible! So they're even MORE annoying!"
             "Nina played the wisher and I was her invisible enemy tormenting her. The other girl in our group did a good job of being the wisher's friend who tried to get Nina to stop wishing."
 
@@ -189,13 +189,111 @@ label nina1:
     return
 
 label nina2:
-    "We are practicing our play! But Nina couldn't be there? She's hiding something!"
+    "I hadn't seen a lot of plays, but ours wasn't at all like what I thought a play would be like."
+    "We hadn't even memorized lines yet -- we were still creating them."
+    "Instead of auditions, we had to come up with the character we wanted to play. Most of us would play one of the people who found the object and made wishes that came out wrong."
+    drama_teacher "What do you think the object should be?"
+    you "In the original it was a monkey's paw..."
+    nina "That's so gross! It should be a sparkling tiara or swishy cape."
+    drama_teacher "It should be something the audience can see that will work for any person to hold or wear. Why don't we look in the props closet and see if we come up with any ideas?"
+    "We stood up to go when a woman I didn't know came to the door."
+    nina "Mom? What are you doing here... oh no! I forgot! Sorry guys, I gotta go!"
+    you "Bye, Nina!"
+    $ nina_pts += 1
+    "She grabbed her backpack and ran out of the room with her mom."
+    "The rest of us headed to the prop room, but I was thinking about Nina. This was the second time she had run out of club early... I wonder what she had going on that made her miss drama club?"
+
+    "As I rummaged through the props, I came across the perfect 'monkey's paw'. It was..."
+    menu:
+        "A sombrero":
+            $ drama_lucky_object = "sombrero"
+            you "Hey, what about this big hat?"
+            drama_teacher "It certainly is large and easy to see!"
+        "A huge ruby amulet":
+            $ drama_lucky_object = "ruby amulet"
+            you "Hey, what about this red amulet?"
+            drama_teacher "It certainly is large and shiny!"
+        "A giant pom pom keychain":
+            $ drama_lucky_object = "jackalope tail"
+            you "Hey, what about this pom pom thing?"
+            drama_teacher "It certainly is unique!"
+            you "And so soft... we could call it a rabbit's tail."
+            student "Or a jackalope tail!"
+
+    "Someone found a rain hat, and there was an old pocket watch, and a creepy-looking book. But we eventually decided on the [drama_lucky_object]."
+    "Then we worked in our groups on our scenes. We acted out the wisehs, and then had to somehow get the [drama_lucky_object] to the next group."
+    "I was supposed to work with Nina but she wasn't there... we muddled through it anyway, but it wasn't very good."
 
     $ nina_next += 1
     return
 
 label nina3:
     "Play practice! I asked Nina why she wasn't there and she wouldn't tell me! She is bullied, giving hints about why she won't talk."
+
+    "Nina and I both showed up to Drama club early."
+    nina "If all the adults died one day, what would you do?"
+    menu:
+        "I would..."
+        "Do the same stuff I do now":
+            you "I would probably just do the same things. Go to school, hang out with friends, eat, sleep."
+            "That's what I've been doing this whole time." # TODO: different response depending on stats?
+        "Party!":
+            you "I would party! Eat all the ice cream! Watch movies all day! No school, no work, nothing!"
+            "That's what I said... and I guess when I was home by myself I kind of did that."
+
+        "Keep everyone alive":
+            you "Someone has to make sure everyone has enough food and shelter and stays alive. That would be me."
+            "After all, I'd been keeping myself alive this whole time."
+
+    "I wanted to tell her that my mom was gone... even though she wasn't dead it was almost as if she were."
+    "But I couldn't tell her."
+    you "Hey, where did you have to go last time? Our group was terrible without you."
+    nina "Awww, did you miss me? Sorry I had to leave; sometimes I have... appointments."
+    "That was vague... why didn't she want to tell me?"
+    menu:
+        "What should I say?"
+        "What kind of appointments?":
+            you "What kind of appointments?"
+            nina "Just... stuff, okay!"
+        "Why don't you want to tell me?":
+            you "Why don't you want to tell me where you were?"
+            nina "What? I'm not... it doesn't matter, okay?"
+        "Okay.":
+            you "Uh, okay."
+            "I didn't want to be annoying about it. What if it was some embarrassing medical thing that she didn't want to talk about? She'd tell me if she wanted to."
+    drama_teacher "Ahem, thespians! Let's start! I'll give each group a few minutes to practice, and then we'll all watch each other's scenes and offer honest feedback."
+
+    student "What's a thespian?"
+    nina "It's an actress, or actor! Like me, or--"
+    student2 "Oh, please. Just because you were in a commercial doesn't make you an actress. Anyone could smile and wave at the camera."
+    "She gave a fake smile and waved like a Barbie doll. Some kids laughed, but when I saw the hurt look on Nina's face, I didn't."
+    nina "I didn't mean--"
+    student2 "'And that's why you should choose Green Tree, like me!' Ugh, that commercial annoys me so much."
+    drama_teacher "Okay, that's enough of that. Everyone needs to go practice their scenes, now!"
+
+    "Everyone moved off to their groups, leaving the three of us to practice. Nina took a deep breath, closed her eyes, and when she opened them, she smiled."
+    nina "O-okay. Let's start!"
+    menu:
+        "What should I say?"
+        "She was mean.":
+            $ nina_pts += 1
+            you "That was mean, how she was making fun of you."
+            nina "Maybe. I mean, she's kinda right, though. That commercial is terrible. Every time it comes on I just have to look away so I don't see that stupid fake smile on my face."
+            you "I never even knew you were in a commercial. That's kinda cool."
+            nina "It's not a big deal."
+        "Yeah, let's move on.":
+            you "Okay, Nina."
+        "Are you okay?":
+            you "Are you okay? You seem kinda upset."
+            nina "I'm fine! I mean, she's right about that commercial. It's terrible, and literally the worst performance of my life."
+            you "I never even knew you were in a commercial. That's kinda cool."
+            nina "It's not a big deal."
+            $ nina_pts += 1
+
+    "We practiced our scene. It went much better with Nina there. And she seemed to feel better after a few minutes."
+
+    # TODO: finish this? perform them and mean girls give mean feedback?
+
     $ nina_next += 1
     return
 
