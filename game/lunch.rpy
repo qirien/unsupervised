@@ -1,16 +1,24 @@
 # Lunch events
-# 50% of the time there's no event, just flavor text.
-# The other 50% it will ask who you want to hang out with.
 
-label get_event_lunch(curr_day):
+# Function for if nothing else is happening and you can choose who to sit with
+label lunch_default:
+    "I looked around the cafeteria and saw a few people I had met."
+    # TODO: Add functions for these and different events
+    menu:
+        "Who should I sit with?"
+        "Nina" if met_nina:
+            "I plopped down next to Nina and a bunch of kids from drama club."
+        "Emir":
+            "Emir waved me over to his table and I sat down."
+        "Calvin" if met_calvin:
+            "I saw Calvin take his food out the door. He was probably headed to the Makerspace, so I followed him."
+        "Tabitha" if met_tabitha:
+            "Tabitha was sitting alone as usual until I sat down across from her."
+    return
+
+
+label lunch_a:
     scene cafeteria
-    
-    $lunch_event = "lunch" + str(curr_day)
-    if renpy.has_label(lunch_event):
-        $renpy.call(lunch_event)
-    else:
-        # randomly pick lunch event? Or just boring?
-        $ pass
     
     "I ate my lunch and wandered around, watching people and thinking. It felt good to be outside in the sunshine."
     return
@@ -34,18 +42,3 @@ label lunch2:
 
     return
 
-# Function for if nothing else is happening and you can choose who to sit with					
-label lunch_default:
-    "I looked around the cafeteria and saw a few people I had met."
-    # TODO: Add functions for these and different events
-    menu:
-        "Who should I sit with?"
-        "Nina" if met_nina:
-            "I plopped down next to Nina and a bunch of kids from drama club."
-        "Emir":
-            "Emir waved me over to his table and I sat down."
-        "Calvin" if met_calvin:
-            "I saw Calvin take his food out the door. He was probably headed to the Makerspace, so I followed him."
-        "Tabitha" if met_tabitha:
-            "Tabitha was sitting alone as usual until I sat down across from her."
-    return

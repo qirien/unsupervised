@@ -2,7 +2,7 @@
 # After School includes clubs, hanging out at the park, etc
 
 
-label get_event_afterschool(curr_day):
+label afterschool_default:
     scene school
     # TODO: Replace with a cool map ?
     # call screen MapScreen

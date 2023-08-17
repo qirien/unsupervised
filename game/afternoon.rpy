@@ -1,6 +1,6 @@
 # Afternoon Class Events
 # Afternoon classes include language arts (Nina), science (Tabitha), and technology/art?
-label get_event_afternoon(curr_day):
+label afternoon_default:
     scene classroom
     # If there's a number for today (or sequence?), do that. Otherwise, 
     # Half the time, do a random letter. The other half of the time, no event

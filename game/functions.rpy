@@ -86,6 +86,36 @@ init -100:
             next_unseen_event = event_type + "_random"
             return next_unseen_event
 
+    python:
+        def init_event_pools():
+            from string import ascii_lowercase
+
+            time_block = 0
+            # Morning, Lunch, Afternoon, After School, Evening, Night
+            while (time_block < MAX_TIMEBLOCKS):
+                # initialize
+                block_variable = time_blocks[time_block] + "_random_events"
+                for letter_suffix in ascii_lowercase:
+                    next_label = time_blocks[time_block] + "_" + str(letter_suffix)
+                    if (renpy.has_label(next_label)):
+                        # for example, morning_random_events.append("morning_a")
+                        eval(block_variable).append(next_label)
+                    else:
+                        break
+
+                time_block += 1
+
+        def get_next_time_event(event_time):
+            block = event_time + "_random_events"
+            # if there's any items left...'
+            if (eval(block)):
+                rand_event = eval("renpy.random.choice(" + block + ")")
+                eval(event_time + "_random_events").remove(rand_event)
+                return rand_event
+            else:
+                # otherwise you get the default
+                return event_time + "_default"
+
 
 # Utility functions and variables used elsewhere
 init -100:

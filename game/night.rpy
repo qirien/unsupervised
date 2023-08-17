@@ -1,6 +1,6 @@
 # Night Events
 # Night includes making dinner and going to bed
-label get_event_night(curr_day):
+label night_default:
     # TODO: Replace with cooking simulator???
     call meal_menu
         

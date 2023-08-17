@@ -73,6 +73,13 @@ default time_block = 0
 define time_blocks = ["morning", "lunch", "afternoon", "afterschool", "evening", "night"] #should evening and night be the same?
 define time_blocks_pretty = ["Morning", "Lunch", "Afternoon", "After School", "Evening", "Night"]
 define MAX_TIMEBLOCKS = 6
+default morning_random_events = []
+default lunch_random_events = []
+default afternoon_random_events = []
+default afterschool_random_events = []
+default evening_random_events = []
+default night_random_events = []
+
 
 # VARIABLES FOR ADVENTURE MODE
 default current_room = "Hallway"
@@ -94,6 +101,9 @@ transform quarterright:
 
 label start:
     scene bg room
+
+    # Initialize event pools
+    $ init_event_pools()
 
     # INTRO is special
     call act1
@@ -124,11 +134,17 @@ label start:
             $ time_block = 0
             # Morning, Lunch, Afternoon, After School, Evening, Night
             while (time_block < MAX_TIMEBLOCKS):
+                # If there's a numbered event, do that, otherwise half the time do a random letter event, and half the time do no event.
                 $ next_label = time_blocks[time_block] + str(day)
                 if (renpy.has_label(next_label)):
                     call expression next_label
                 else: 
-                    call expression "get_event_" + time_blocks[time_block] pass (day)
+                    $ coin_flip = renpy.random.choice([0,1])
+                    if (coin_flip == 0):
+                        call expression time_blocks[time_block] + "_default"
+                    else:
+                        $ rand_event = get_next_time_event(time_blocks[time_block])
+                        call expression rand_event
                 $ time_block += 1
         $ day = day + 1
     

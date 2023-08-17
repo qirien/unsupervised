@@ -28,5 +28,5 @@ screen KitchenScreen():
         vbox:
             yalign 0.5
             xalign 0.5
-            textbutton "Eat something" action Call("meal_menu")
+            #textbutton "Eat something" action Call("meal_menu")
             textbutton "Clean up" action Call("clean")
