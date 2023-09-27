@@ -13,18 +13,22 @@ label research_random:
     $ research_pts += 1
     return
 
+# TODO: show picture here, too
+label mom_text0:
+    nvl clear
+    mom_text "Don't know if you'll get this, had to borrow a phone, not everyone has them out here. Yours is only number I have memorized. If work calls, show them my message. Trying to send a pic."
+    mom_text "Guess you're not on your phone now; good job, [your_name]. I gotta go, though, so I won't get replies. Text you again when I can."
+    you_text "Mom?! Mom, it's [your_name]! Where are you?!"
+    mom_text "Извини. я не могу тебе помочь"  #TODO: validate with Russian speaker 'sorry, I can't help you.'
+    nvl clear
+    return
+
+# TODO: Make this a screen of hot spots where the user gets to pick what to investigate?
 label research0:
     "My mom was missing, and I wasn't sure her work was going to be able to find her."
     "It was up to me."
     "I read the text she had sent me again."
-    nvl clear
-    # TODO: store this in some way so there's no copy/paste?
-    # TODO: Make this a screen of hot spots where the user gets to pick what to investigate?
-    # TODO: show picture here, too
-    mom_text "Don't know if you'll get this, had to borrow a phone, not everyone has them out here. Yours is only number I have memorized. If work calls, show them my message. Trying to send a pic."
-    mom_text "Guess you're not on your phone now; good job, [your_name]. I gotta go, though, so I won't get replies. Text you again when I can."
-    you_text "Mom?! Mom, it's [your_name]! Where are you?!"
-    mom_text "Извини. я не могу тебе помочь."
+    call mom_text0
     "That response... the letters definitely weren't English. I searched for that phrase..."
     you "Looks like it's... Russian? 'Sorry, I can't help you'."
     you "There's a lot of countries that speak Russian..."
@@ -38,14 +42,72 @@ label research0:
     $ research_next += 1
     return
 
+# Turn this into hot spots you click on to get different text
 label research1:
-    "time zone and time of day research"
+    "I stared at the photo my mom had sent. She didn't look sad or hurt."
+    "Just worn-out, like she'd been traveling a lot."
+    # if you click the "Ask Me!" button
+    you "Hey phone, where is my mom?"
+    "Phone" "Sorry, I don't have any information about that. Try saying 'play some music' or 'tell me a joke'."
+    "It was worth a try."
+    # clock app
+    "I opened up the clock app and found the world map, where it showed the current time at different places around the world."
+    "What time was it where she was?"
+    "Wait... I had some clues about that!"
+    you "She texted me at 7:30am my time..."
+    "I looked at the picture again. Obviously it was day time where she was, but was it morning? Or afternoon?"
+    "There were some long shadows, so it wasn't noon."
+    "I noticed a half moon in the sky in the background. Was the moon up in the morning or evening? Was that the same all over the world?"
+    "Now I had to research the moon..."
+    # Wikipedia simple moon page?
+
+    you "Hey phone, what was the phase of the moon on the date this picture was taken?"
+    "Phone" "First Quarter, 56\% illuminated"
+    "'In the first quarter, during the afternoon, our natural satellite can be seen rising in the eastern sky.'"
+    you "So when it was morning here, it was afternoon there!"
+    "I looked at my world time map again."
+    you "That means... she must be somewhere between Europe and Asia. Or maybe East Africa...?"
+    you "Russian-speaking, so probably not Africa."
+    "That was still a huge part of the Earth. But the more I found out, the closer I felt to her."
+    # TODO: Have a map of the world where you slowly narrow down where she might be
+
     $ research_pts += 1
     $ research_next += 1
     return
 
 label research2:
-    "Looking through her work bag research"
+    "I looked around my mom's room, wondering if she had left anything that could tell me where she was or what she was doing."
+    you "Most of her stuff is probably at work..."
+    "I checked her email... but it wasn't her work email; just her personal email."
+    "Sales, reminders, receipts, stuff for school... uh-oh."
+    "There was an email from one of my teachers!"
+    # changes based on grades
+
+
+
+    "I searched her purse."
+    "Lip balm, tissues, tampons, breath mints... boring stuff."
+    "But there was a small pad of paper."
+    "It was blank, but I could see some indentations from something she had written, then torn the page off. If I looked closely, I could almost make out words... but not quite."
+    "One of my detective books had something about this!"
+    "I could rub over the paper with pencil and the words should show up!"
+    "I ran and grabbed a pencil."
+    "Shading lightly, but carefully, I could read what she had written..."
+    # TODO: Have a pic for this
+    nvl clear
+    note "Field Test Checklist"
+    note "No metal/electronics!! (magnetic field resonance)"
+    note "Check oscillation tolerances"
+    note "Phase variance increasing over time?"
+    note "Drop site team check"
+    note "Take [your_name] out for ice cream!"
+    nvl clear
+
+    you "We never did go out for ice cream..."
+    "I wasn't sure what all that meant, but it sounded like parts of the experiment she was doing for work."
+    "But what kind of experiment sends someone all the way around the world??"
+    "Time to research teleportation, I guess..."
+
     $ research_pts += 1
     $ research_next += 1
     return

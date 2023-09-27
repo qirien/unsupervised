@@ -5,11 +5,8 @@ label wakeup4:
     "But I still missed my mom."
     "I woke up and found a new message from her on my phone."
 
-    nvl clear
-    mom_text "Don't know if you'll get this, had to borrow a phone, not everyone has them out here. Yours is only number I have memorized. If work calls, show them my message. Trying to send a pic."
-    mom_text "Guess you're not on your phone now; good job, [your_name]. I gotta go, though, so I won't get replies. Text you again when I can."
-    you_text "Mom?! Mom, it's [your_name]! Where are you?!"
-    mom_text "Извини. я не могу тебе помочь"  #TODO: validate with Russian speaker 'sorry, I can't help you.'
+    call mom_text0
+
     "I guess she's moved on... "
     "I stared at the picture again. My mom was alive..."
 

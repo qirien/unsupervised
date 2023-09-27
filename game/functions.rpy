@@ -25,6 +25,25 @@ label adventure_mode(start_room):
     return
 
 init python:
+    def good_stat(stat):
+        if (stat >= STAT_GOOD):
+            return True
+        return False
+
+    def bad_stat(stat):
+        if (stat <= STAT_BAD):
+            return True
+        return False
+
+    # TODO: this is not global and therefore doesn't work.
+    def stat_change(stat, amount):
+        stat += amount
+        if (stat < 0):
+            stat = 0
+        if (stat > STAT_MAXIMUM):
+            stat = STAT_MAXIMUM
+        return
+
     def dayofweek(day):
         if (day % 7 == 1):
             return "Monday"

@@ -6,6 +6,7 @@ define ryan = Character("Ryan")
 define emir = Character("Emir", image="emir", who_color="#dac96c")
 define tabitha = Character("Tabitha", image="tabitha", who_color="#ee22aa")
 define nina = Character("Nina", image="nina", who_color="#eedd11")
+define calvin = Character("Calvin", image="nina", who_color="#11ff56")
 define math_teacher = Character("Mr. Factor")
 define drama_teacher = Character("Ms. Hicks")
 define note = Character(kind=nvl)
@@ -18,14 +19,18 @@ define student = Character("Male Student")
 define student2 = Character("Female Student")
 
 # VARIABLES FOR STATS
-default health = 100
+define STAT_MAXIMUM = 100
+define STAT_GOOD = 80
+define STAT_BAD = 50
+default health = STAT_MAXIMUM
 default stress = 0
-default grades = 0
-default house = 100
+default grades = STAT_MAXIMUM
+default house = STAT_MAXIMUM
 default research_pts = 0
 default research_next = 0
 default money = 2000
 default looked_for_clues = False
+define PIZZA_COST = 25
 
 # VARIABLES FOR MC
 default your_name = "Me"
@@ -147,6 +152,11 @@ label start:
                         call expression rand_event
                 $ time_block += 1
         $ day = day + 1
+
+        # Gotta upkeep these or they slowly decrease
+        $ grades -= 1
+        $ house -= 1
+
     
     # THE END
     #call ending

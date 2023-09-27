@@ -60,7 +60,9 @@ label meal_menu():
             "I ate some carrots and an apple and some crackers and cheese. Easy."
         "Eat junk food.":
             "I pulled out a bag of chips and some fruit snacks. My mom was probably saving them for a special occasion, but too bad. She wasn't here."
-        "Order pizza." if (day > 2): # TODO: disable if you haven't found mom's phone yet or you don't have money
+            $ stat_change(health, -1)
+        "Order pizza." if ((day > 2) and (money >= PIZZA_COST)): # TODO: Disable if you haven't found mom's phone yet or you don't have money
             "I used my mom's phone to order a pizza. Thirty minutes later, it arrived. I ate half of it myself and put the other half in the fridge for later."
+            $ money -= PIZZA_COST
 
     return
