@@ -8,10 +8,12 @@ define tabitha = Character("Tabitha", image="tabitha", who_color="#ee22aa")
 define nina = Character("Nina", image="nina", who_color="#eedd11")
 define calvin = Character("Calvin", image="nina", who_color="#11ff56")
 define math_teacher = Character("Mr. Factor")
+define math_teacher_text = Character("Mr. Factor", kind=nvl)
 define drama_teacher = Character("Ms. Hicks")
 define note = Character(kind=nvl)
 define coworker_text = Character("Mark Yao", kind=nvl)
 define you_text = Character("your_name", kind=nvl, dynamic=True)
+define mom = Character("Mom", who_color="#1122dd")
 define mom_text = Character("Unknown Number", kind=nvl)
 define quiz = Character(kind=nvl)
 
@@ -117,6 +119,7 @@ label start:
     while (day <= MAX_DAYS):
         # Reset for a new day
         $ looked_for_clues = False
+        scene bedroom day
         # If we have a wakeup event, do that first
         $ next_label = "wakeup" + str(day)
         if (renpy.has_label(next_label)):

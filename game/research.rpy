@@ -13,16 +13,6 @@ label research_random:
     $ research_pts += 1
     return
 
-# TODO: show picture here, too
-label mom_text0:
-    nvl clear
-    mom_text "Don't know if you'll get this, had to borrow a phone, not everyone has them out here. Yours is only number I have memorized. If work calls, show them my message. Trying to send a pic."
-    mom_text "Guess you're not on your phone now; good job, [your_name]. I gotta go, though, so I won't get replies. Text you again when I can."
-    you_text "Mom?! Mom, it's [your_name]! Where are you?!"
-    mom_text "Извини. я не могу тебе помочь"  #TODO: validate with Russian speaker 'sorry, I can't help you.'
-    nvl clear
-    return
-
 # TODO: Make this a screen of hot spots where the user gets to pick what to investigate?
 label research0:
     "My mom was missing, and I wasn't sure her work was going to be able to find her."
@@ -83,7 +73,14 @@ label research2:
     "There was an email from one of my teachers!"
     # changes based on grades
 
+    nvl clear
+    math_teacher_text "Hey, I noticed you hadn't returned your parent feedback form and just wanted to send a reminder to do that if you can."
+    if (good_stat(grades)):
+        math_teacher_text "It's a pleasure to have [your_name] in my class. She often helps other students and always has interesting things to say."
+    else:
+        math_teacher_text "[your_name] is trying in class, but she hasn't been doing her homework and her grades are starting to suffer."
 
+    "Parent feedback form?? Well, that was just one of many things that my mom wasn't doing right now."
 
     "I searched her purse."
     "Lip balm, tissues, tampons, breath mints... boring stuff."
@@ -125,6 +122,13 @@ label research3:
     you "Used to be part of the Soviet Union..."
     you "Natural resources include oil and gas..."
     "I spent the rest of the night reading up on Kazakhstan..."
+
+    $ research_pts += 1
+    $ research_next += 1
+    return
+
+label research4:
+
 
     $ research_pts += 1
     $ research_next += 1

@@ -1,5 +1,5 @@
 label act1:
-    scene bedroom
+    scene bedroom day
     "It's morning, but nobody's going to wake me up for school."
     "I'm in sixth grade and I'm doing everything on my own."
     "No mom, no dad, no rules but mine."
@@ -195,7 +195,7 @@ label act1:
     "After lunch and a few more classes, I rode my bike home."
     scene house evening
     "Even though the house was empty, it still felt cozy, like a warm hoodie."
-    scene bedroom
+    scene bedroom day
     "I had some time to do a few things before dinner..."
     call freetime_menu(2)
     
@@ -203,7 +203,7 @@ label act1:
     "We had some basic ingredients in the fridge, and I'd cooked for the two of us plenty of times before."
     call meal_menu
 
-    scene bedroom
+    scene bedroom night
 
     "Wow, my mom was really working late. That's not too unusual, but I was all by myself in our quiet house."
     menu:
@@ -235,7 +235,7 @@ label act1:
 # DAY 2
 label wakeup2:
     
-    scene bedroom
+    scene bedroom day
     "I woke up the next day to my alarm and the feeling that something was wrong."
     "Everything looked the same as last night..."
     "...Where was Mom?"

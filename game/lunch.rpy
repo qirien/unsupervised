@@ -2,6 +2,7 @@
 
 # Function for if nothing else is happening and you can choose who to sit with
 label lunch_default:
+    scene cafeteria
     "I looked around the cafeteria and saw a few people I had met."
     # TODO: Add functions for these and different events
     menu:
@@ -23,7 +24,13 @@ label lunch_a:
     "I ate my lunch and wandered around, watching people and thinking. It felt good to be outside in the sunshine."
     return
 
+label lunch_b:
+    scene cafeteria
+    "It was raining, so I decided to eat inside."
+    return
+
 label lunch2:
+    scene cafeteria
     "As I waited in line for my lunch, I noticed that all the clubs and teams had setup booths around the cafeteria to try to get people to join."
     show emir happy at center
     "Emir got in line next to me."

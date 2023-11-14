@@ -47,6 +47,7 @@ label textfreetime_menu(menu_count=1):
 # Cooking menu
 # TODO: have different options depending on how late/hungry
 # TODO: have some random options
+# TODO: If researched cooking in spare time, allow cooking more advanced meals
 label meal_menu():
     scene kitchen
     menu:
@@ -60,7 +61,7 @@ label meal_menu():
             "I ate some carrots and an apple and some crackers and cheese. Easy."
         "Eat junk food.":
             "I pulled out a bag of chips and some fruit snacks. My mom was probably saving them for a special occasion, but too bad. She wasn't here."
-            $ stat_change(health, -1)
+            $ health_change(-1)
         "Order pizza." if ((day > 2) and (money >= PIZZA_COST)): # TODO: Disable if you haven't found mom's phone yet or you don't have money
             "I used my mom's phone to order a pizza. Thirty minutes later, it arrived. I ate half of it myself and put the other half in the fridge for later."
             $ money -= PIZZA_COST

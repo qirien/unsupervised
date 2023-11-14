@@ -7,7 +7,7 @@ screen BedroomScreen():
     style_prefix "room"
     frame:
         # TODO: different depending on time of day?
-        background "bedroom"
+        background "bedroom day"
         xfill True
         yfill True
         imagebutton:

@@ -5,11 +5,11 @@ label find_class(desired_room):
         $ picked_room = _return
         if (picked_room != desired_room):
             $ random_response = renpy.random.choice(
-            ["I tried to follow the map, but ended up at [picked_room] instead. Guess I'll have to try again.",
-            "Whoa, how did I end up at [picked_room]? I looked at my map again.",
-            "Well, I wasn't at [desired_room], but at least I found out where [picked_room] was.",
-            "This wasn't [desired_room]. Ugh."
-            ])
+            ["I tried to follow the map, but ended up at [picked_room] instead. Guess I'll have to try again."],
+            ["Whoa, how did I end up at [picked_room]? I looked at my map again."],
+            ["Well, I wasn't at [desired_room], but at least I found out where [picked_room] was."],
+            ["This wasn't [desired_room]. Ugh."]
+            )
             $ renpy.say(None, random_response)
     return
 
@@ -35,13 +35,31 @@ init python:
             return True
         return False
 
-    # TODO: this is not global and therefore doesn't work.
-    def stat_change(stat, amount):
-        stat += amount
-        if (stat < 0):
-            stat = 0
-        if (stat > STAT_MAXIMUM):
-            stat = STAT_MAXIMUM
+    def health_change(amount):
+        global health
+        health += amount
+        if (health < 0):
+            health = 0
+        if (health > STAT_MAXIMUM):
+            health = STAT_MAXIMUM
+        return
+
+    def grades_change(amount):
+        global grades
+        grades += amount
+        if (grades < 0):
+            grades = 0
+        if (grades > STAT_MAXIMUM):
+            grades = STAT_MAXIMUM
+        return
+
+    def house_change(amount):
+        global house
+        house += amount
+        if (house < 0):
+            house = 0
+        if (house > STAT_MAXIMUM):
+            house = STAT_MAXIMUM
         return
 
     def dayofweek(day):
