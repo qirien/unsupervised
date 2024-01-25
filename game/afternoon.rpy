@@ -23,6 +23,7 @@ label afternoon_b:
     "In Technology class we were practicing our typing skills by typing famous quotations."
     you "To say of what is that it is not, or of what is not that it is, is false, while to say of what is that it is, and of what is not that it is not, is true."
     you "What was Aristotle thinking when he wrote that??"
+    you "Maybe it sounds better in ancient Greek..."
     return
 
 label afternoon_c:
@@ -70,7 +71,7 @@ label afternoon_d:
 
 label afternoon_2:
     scene technology
-    "We started off Technology class with typing lessons. I thought that was kind of dumb since I was already kind of good at typing from playing video games and talking to people there."
+    "We started off Technology class with typing lessons. Pointless for me, since I was already kind of good at typing from playing video games and talking to people there."
     "But maybe it would be nice to be faster at typing."
     you "What am I even typing??"
     you "\"Sad lad had fad\""
@@ -79,8 +80,10 @@ label afternoon_2:
     return
 
 label afternoon_4:
+    scene english
     "In Language Arts class we were reading \"My Side of the Mountainn\"."
     "It's a book about a kid who runs away from home to live in the woods all by himself."
+    "I could kind of relate, except he chose to live by himself. I didn't have a choice."
     "At least I already had a house full of food to live in... "
     show nina at center
     nina mad "This book is completely unrealistic! There's no way a kid our age could live on their own in the woods!"
@@ -101,4 +104,92 @@ label afternoon_4:
             you "He didn't just eat watercress!"
 
     "I wonder what she would say if she knew I was living on my own..."
+    return
+
+
+# Day 10 Science
+# Scarcity loop experiment
+label afternoon_7:
+    scene science
+    "In Science class Tabitha and I were lab partners. She didn't seem to know many people, and I didn't have any other friends in that class."
+    "Was she my friend? It was hard to tell."
+    "Anyway, we were playing a dice game, and we could choose if we wanted one candy every round no matter what, or if we wanted to the chance to win different amounts of candies based on our die rolls."
+    "If you rolled a 6,7, or 8, you got nothing. Doubles got you three candies, and everything else was one candy. We played ten rounds."
+    show tabitha at center
+    tabitha "... which do you pick?"
+    menu:
+        "What should I say?"
+        "I'll just get one candy every round.":
+            you "Ten candies? Sounds good."
+            tabitha "... me too."
+            "We took our ten candies and looked around the classroom while eating our candies."
+        "I'll try my luck!":
+            you "I want to see how lucky I am!"
+            tabitha "...okay."
+            "She counted out ten candies for herself and passed me the dice. I guess she didn't want to play."
+            $ a7_rounds = 0
+            $ a7_total = 1
+            label a7_dice_loop:
+                $ a7_d1 = renpy.random.randint(1,6)
+                $ a7_d2 = renpy.random.randint(1,6)
+                "For roll [a7_rounds], I rolled and got a [a7_d1] and a [a7_d2]."
+                if (a7_d1 == a7_d2):
+                    you "Three for me!"
+                    $ a7_total += 3
+                elif ((a7_d1 + a7_d2) == 6):
+                    you "None this time."
+                elif ((a7_d1 + a7_d2) == 7):
+                    you "Nothing."
+                elif ((a7_d1 + a7_d2) == 8):
+                    you "Zero candies for me."
+                else:
+                    you "I'll take one candy, please."
+                    $ a7_total += 1
+                $ a7_rounds += 1
+                if (a7_rounds < 11):
+                    jump a7_dice_loop
+            "I ended up with [a7_total] candies."
+            if (a7_total > 10):
+                "So for me it was worth it!"
+            elif (a7_total < 10):
+                "That didn't work out so well."
+            else:
+                "That turned out exactly the same."
+
+    "Most people had picked the random option, and they cheered and groaned depending on their die rolls."
+    "When we all finished, we made a graph of the number of candies everyone got."
+    "Almost everyone who chose the random option got 9 or less candies, except for one lucky kid who got thirteen."
+    "Now we had to write our conclusion."
+    tabitha "What do you think?"
+    menu:
+        "What should I say?"
+        "It's more fun when life is unpredictable.":
+            you "It was more fun to play the game. People will choose fun even if it means less rewards."
+        "People are stupid.":
+            you "People are so stupid, they make bad choices all the time because of emotions. They should just do what makes sense!"
+        "This isn't a good experiment.":
+            you "If this is supposed to relate to the real world, it's a bad experiment. Candies don't matter. What if it was money instead?"
+            tabitha "Like gambling?"
+            you "Yeah, and even then they try to make it seem like it's just for fun - that's why they have you use tokens instead of real money in the machines."
+
+    "Our teacher explained that this kind of unpredictable reward is very appealing to humans, and to most animals."
+    "She told us about studies where rats and monkeys would basically always choose the unpredictable option, especially when it was something they needed."
+    "So it was one reason people might choose gambling or drugs or other risky things more often the more they stressed and lacking what they need."
+    "It was kind of like in a video game where you might get a random box as a reward... but of course you never get the really cool box, you usually just get the regular box."
+    "But apparently knowing about this effect makes it not work as well, so that's good I guess??"
+    tabitha "...humans are weird."
+    menu:
+        "What should I say?"
+        "You're weird.":
+            you "No, you're weird."
+            "She just looked at me and shook her head."
+            $ tabitha_pts -= 1
+        "You're right.":
+            you "Yeah, humans are weird! Especially me."
+            "I made a silly face at her and she almost smiled."
+            $ tabitha_pts += 1
+        "You're wrong.":
+            you "That's not weird; by definition if most humans do a thing it's normal. It's just our perceptions that need to be changed."
+            tabitha "...huh."
+
     return

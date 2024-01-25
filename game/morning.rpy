@@ -1,5 +1,5 @@
 # Morning Class Events
-# Morning classes include advisory (Emir), gym, math (Calvin), social studies
+# Morning classes include advisory (Emir), gym, math (Calvin), social studies (Ryan)
 label morning_default:
     scene classroom
     "Advisory, gym, math, social studies... I went to class like a good little robot."
@@ -53,6 +53,13 @@ label morning_c:
             you "Let's just work on our own."
             calvin "Fine, I don't trust your answers anyway."
     return
+
+# Day 5 Advisory
+# How to make small talk. Speed friending!
+label morning_5:
+
+    return
+
 
 # Day 14 morning event
 # TODO: adjust timing as needed
